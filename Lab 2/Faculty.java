@@ -52,4 +52,12 @@ public class Faculty {
 	public void setCapacity(int _capacity_) {
 		capacity = _capacity_;
 	}
+
+	/**
+	 * Call all print method for every lab in faculty
+	 */
+	public void print() {
+		for (int i = 0; i < currentSize; i++)
+			labs[i].print();
+	}
 }

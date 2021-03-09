@@ -33,5 +33,6 @@ public class Run {
 		System.out.println("-----------------------");
 		Faculty fc1 = new Faculty(50);
 		fc1.enrollLab(lb1);
+		fc1.print();
 	}
 }
