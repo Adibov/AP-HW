@@ -27,7 +27,11 @@ public class Run {
 		lb1.enrollStudent(std2);
 		lb1.enrollStudent(std3);
 		lb1.print();
-
 		std2.print();
+
+
+		System.out.println("-----------------------");
+		Faculty fc1 = new Faculty(50);
+		fc1.enrollLab(lb1);
 	}
 }

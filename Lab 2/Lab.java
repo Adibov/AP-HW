@@ -16,7 +16,7 @@ public class Lab {
 	 * @param _day_ Lab day?
 	 */
 	public Lab(int _capacity_, String _day_) {
-		students = new Student[50];
+		students = new Student[_capacity_];
 		average = 0;
 		day = _day_;
 		capacity = _capacity_;
