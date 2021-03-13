@@ -3,21 +3,20 @@ import java.util.ArrayList;
 /**
  * A class to hold details of audio files.
  * 
- * @author David J. Barnes and Michael Kölling
+ * @author David J. Barnes and Michael Kolling with special thanks to Adibov
  * @version 2011.07.31
  */
-public class MusicCollection
-{
+public class MusicCollection {
     // An ArrayList for storing the file names of music files.
     private ArrayList<String> files;
     // A player for the music files.
     private MusicPlayer player;
-        
+
     /**
      * Create a MusicCollection
      */
-    public MusicCollection()
-    {
+    public MusicCollection() {
+        player = new MusicPlayer();
         
     }
     
@@ -25,8 +24,7 @@ public class MusicCollection
      * Add a file to the collection.
      * @param filename The file to be added.
      */
-    public void addFile(String filename)
-    {
+    public void addFile(String filename) {
         
     }
     
@@ -34,8 +32,7 @@ public class MusicCollection
      * Return the number of files in the collection.
      * @return The number of files in the collection.
      */
-    public int getNumberOfFiles()
-    {
+    public int getNumberOfFiles() {
         
     }
     
@@ -43,16 +40,14 @@ public class MusicCollection
      * List a file from the collection.
      * @param index The index of the file to be listed.
      */
-    public void listFile(int index)
-    {
+    public void listFile(int index) {
         
     }
     
     /**
      * Show a list of all the files in the collection.
      */
-    public void listAllFiles()
-    {
+    public void listAllFiles() {
         
     }
     
@@ -60,8 +55,7 @@ public class MusicCollection
      * Remove a file from the collection.
      * @param index The index of the file to be removed.
      */
-    public void removeFile(int index)
-    {
+    public void removeFile(int index) {
         
     }
 
@@ -70,16 +64,14 @@ public class MusicCollection
      * Use stopPlaying() to stop it playing.
      * @param index The index of the file to be played.
      */
-    public void startPlaying(int index)
-    {
+    public void startPlaying(int index) {
         
     }
 
     /**
      * Stop the player.
      */
-    public void stopPlaying()
-    {
+    public void stopPlaying() {
         
     }
 
@@ -90,10 +82,9 @@ public class MusicCollection
      * @param index The index to be checked.
      * @return true if the index is valid, false otherwise.
      */
-    private boolean validIndex(int index)
-    {
+    private boolean validIndex(int index) {
         // The return value.
         // Set according to whether the index is valid or not.
-       
+        
     }
 }
