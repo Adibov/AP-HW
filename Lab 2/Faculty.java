@@ -50,7 +50,7 @@ public class Faculty {
 	 * @param _capacity_
 	 */
 	public void setCapacity(int _capacity_) {
-		capacity = _capacity_.clone();
+		capacity = _capacity_;
 	}
 
 	/**
