@@ -21,6 +21,7 @@ public class LinkedList {
      * @param k
      */
     public void add(int k) {
+        cur = head;
         while (cur.getNext() != null)
             cur = cur.getNext();
         Node newNode = new Node(k);
