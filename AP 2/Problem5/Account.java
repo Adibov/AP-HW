@@ -42,7 +42,7 @@ public class Account {
      * add the given transaction to the list of transactions
      * @param transaction
      */
-    public void addTransaction(ArrayList<Transaction> transaction) {
+    public void addTransaction(Transaction transaction) {
         transactions.add(transaction);
     }
 
@@ -50,6 +50,6 @@ public class Account {
      * print account data
      */
     public void printAccountData() {
-        System.out.println(serial.toString + ", " + id + ", " + firstName + ' ' + lastName + ", " + balance);
+        System.out.println(serial.toString() + ", " + id + ", " + firstName + ' ' + lastName + ", " + balance);
     }
 }
