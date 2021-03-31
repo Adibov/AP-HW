@@ -39,4 +39,26 @@ public class User {
     public void removeAccount(Account account) {
         accountList.remove(account);
     }
+
+    /**
+     * deposit the given amount to the account
+     * @param account
+     * @param amount
+     */
+    public void deposit(Account account, int amount) {
+        account.updateBalance(amount);
+    }
+
+    /**
+     * withdraw the given amount from the account
+     * @param account
+     * @param amount
+     */
+    public void withdrawal(Account account, int amount) {
+        if (account.getBalence() < amount) {
+            System.out.println("Not enough money");
+            return;
+        }
+        account.updateBalence(-amount);
+    }
 }

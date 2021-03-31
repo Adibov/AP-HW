@@ -52,4 +52,12 @@ public class Account {
     public void printAccountData() {
         System.out.println(serial.toString() + ", " + id + ", " + firstName + ' ' + lastName + ", " + balance);
     }
+
+    /**
+     * get account balance
+     * @return
+     */
+    public int getBalance() {
+        return balance;
+    }
 }
