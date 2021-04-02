@@ -8,7 +8,7 @@ import java.util.ArrayList;
  */
 public class MusicCollection {
     // An ArrayList for storing the file names of music files.
-    private ArrayList<Music> files, pop, jazz, rock, country;
+    private ArrayList<Music> files, pop, jazz, rock, country, favourites;
     // A player for the music files.
     private MusicPlayer player;
 
@@ -22,6 +22,7 @@ public class MusicCollection {
         jazz = new ArrayList<Music>();
         rock = new ArrayList<Music>();
         country = new ArrayList<Music>();
+        favourites = new ArrayList<Music>();
     }
     
     /**
@@ -30,8 +31,8 @@ public class MusicCollection {
      * @param type
      * @param address
      */
-    public void addMusic(String filename, String type, String address) {
-        Music newMusic = new Music(filename, type, address);
+    public void addMusic(String filename, String type, String address, String artist, String releaseDate) {
+        Music newMusic = new Music(filename, type, address, artist, releaseDate);
         if (type.equals("Pop")) {
             pop.add(newMusic);
         }
@@ -98,10 +99,8 @@ public class MusicCollection {
      * @param index The index of the file to be removed.
      */
     public void removeMusic(int index) {
-        if (!validIndex(index)) {
-            System.out.println("Invalid index");
+        if (!validIndex(index))
             return;
-        }
         index--;
 
         Music deletedMusic = files.get(index);
@@ -122,10 +121,8 @@ public class MusicCollection {
      * @param index The index of the file to be played.
      */
     public void startPlaying(int index) {
-        if (!validIndex(index)) {
-            System.out.println("Invalid index");
+        if (!validIndex(index))
             return;
-        }
         index--;
         player.startPlaying(files.get(index));
     }
@@ -139,6 +136,54 @@ public class MusicCollection {
 
 
     /**
+     * add the given music to the favourite list
+     * @param index
+     */
+    public void addToFavourite(int index) {
+        if (!validIndex(index))
+            return;
+        index--;
+        Music fave = files.get(index);
+        if (favourites.contains(fave))
+            return;
+        favourites.add(fave);
+    }
+
+    /**
+     * remove the given music from the favourite list
+     * @param index
+     */
+    public void removeFromFavourite(int index) {
+        index--;
+        if (index < 0 || index >= favourites.size()) {
+            System.out.println("Invalid index");
+            return;
+        }
+        favourites.remove(index);
+    }
+
+    /**
+     * show the favourite list
+     */
+    public void showFavourite() {
+        for (Music i : favourites)
+            i.print();
+    }
+
+    /**
+     * find song by its filename
+     * @param filename
+     */
+    public void findSong(String filename) {
+        for (Music i : files)
+            if (i.getFilename().equals(filename)) {
+                i.print();
+                return;
+            }
+        System.out.println("No such song found!");
+    }
+
+    /**
      * Determine whether the given index is valid for the collection.
      * Print an error message if it is not.
      * @param index The index to be checked.
@@ -148,8 +193,10 @@ public class MusicCollection {
         // The return value.
         // Set according to whether the index is valid or not.
         index--;
-        if (index < 0 || index >= files.size())
+        if (index < 0 || index >= files.size()) {
+            System.out.println("Invalid index");
             return false;
+        }
         return true;
     }
 

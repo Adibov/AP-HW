@@ -32,6 +32,14 @@ public class Run {
 			else if (input.equals("6"))
 				stopPlaying();
 			else if (input.equals("7"))
+				addToFavourite();
+			else if (input.equals("8"))
+				removeFromFavourite();
+			else if (input.equals("9"))
+				showFavourite();
+			else if (input.equals("10"))
+				findSong();
+			else if (input.equals("11"))
 				break;
 			else
 				System.out.println("Invalid input!");
@@ -44,13 +52,15 @@ public class Run {
 	 * add music to the list
 	 */
 	public static void addMusic() {
-		String filename, type, address;
-		System.out.println("Enter music's filename, type(Pop, Jazz, Rock, Country) and address separated by enter: ");
+		String filename, type, address, artist, releaseDate;
+		System.out.println("Enter music's filename, type(Pop, Jazz, Rock, Country), address, artist and realese date separated by enter: ");
 		filename = inputScanner.nextLine();
 		filename = inputScanner.nextLine();
 		type = inputScanner.nextLine();
 		address = inputScanner.nextLine();
-		mc.addMusic(filename, type, address);
+		artist = inputScanner.nextLine();
+		releaseDate = inputScanner.nextLine();
+		mc.addMusic(filename, type, address, artist, releaseDate);
 	}
 
 	/**
@@ -94,6 +104,37 @@ public class Run {
 	}
 
 	/**
+	 * add to favourites
+	 */
+	public static void addToFavourite() {
+		System.out.print("Enter the index of the music to be added to favourites: ");
+		int index = inputScanner.nextInt();
+		mc.addToFavourite(index);
+	}
+
+	/**
+	 * remove a song from favourites
+	 */
+	public static void removeFromFavourite() {
+		System.out.print("Enter the index of the music to be removed from favourites: ");
+		int index = inputScanner.nextInt();
+		mc.removeFromFavourite(index);
+	}
+
+	public static void showFavourite() {
+		System.out.println("Favourites: ");
+		mc.showFavourite();
+	}
+
+	private static void findSong() {
+		String filename;
+		System.out.println("Enter the name of the song you want to find");
+		filename = inputScanner.nextLine();
+		filename = inputScanner.nextLine();
+		mc.findSong(filename);
+	}
+
+	/**
 	 * show menu in the stdout
 	 */
 	public static void showMenu() {
@@ -103,6 +144,10 @@ public class Run {
 		System.out.println("4) Remove a music");
 		System.out.println("5) Play a music");
 		System.out.println("6) Stop playing");
-		System.out.println("7) Exit");
+		System.out.println("7) Add a music to the favourite list");
+		System.out.println("8) remove a music from the favourite list");
+		System.out.println("9) show the favourite list");
+		System.out.println("10) Find song by filename");
+		System.out.println("11) Exit");
 	}
 }
