@@ -74,6 +74,7 @@ public class MusicCollection {
             return country.size();
         else
             System.out.println("Invalid type");
+        return 0;
     }
     
     /**
@@ -81,7 +82,7 @@ public class MusicCollection {
      * @param index The index of the file to be listed.
      */
     public void listMusic(int index) {
-        files.get(indx).print();
+        files.get(index).print();
     }
     
     /**
@@ -97,22 +98,20 @@ public class MusicCollection {
      * @param index The index of the file to be removed.
      */
     public void removeMusic(int index) {
-        System.out.println("hey: " + index);
         if (!validIndex(index)) {
             System.out.println("Invalid index");
             return;
         }
         index--;
-        System.out.println("hey2: " + index);
 
         Music deletedMusic = files.get(index);
-        if (deletedMusic.type.equals("Pop"))
+        if (deletedMusic.getType().equals("Pop"))
             pop.remove(deletedMusic);
-        else if (deletedMusic.type.equals("Jazz"))
+        else if (deletedMusic.getType().equals("Jazz"))
             jazz.remove(deletedMusic);
-        else if (deletedMusic.type.equals("Rock"))
+        else if (deletedMusic.getType().equals("Rock"))
             rock.remove(deletedMusic);
-        else if (deletedMusic.type.equals("Country"))
+        else if (deletedMusic.getType().equals("Country"))
             country.remove(deletedMusic);
         files.remove(deletedMusic);
     }
@@ -127,6 +126,7 @@ public class MusicCollection {
             System.out.println("Invalid index");
             return;
         }
+        index--;
         player.startPlaying(files.get(index));
     }
 
@@ -152,4 +152,6 @@ public class MusicCollection {
             return false;
         return true;
     }
+
+
 }

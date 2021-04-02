@@ -35,6 +35,7 @@ public class Run {
 				break;
 			else
 				System.out.println("Invalid input!");
+			System.out.println();
 		}
 		System.out.println("Good luck & have fun ;D");
 	}
@@ -42,13 +43,12 @@ public class Run {
 	/**
 	 * add music to the list
 	 */
-	public void addMusic() {
+	public static void addMusic() {
 		String filename, type, address;
-		System.out.print("Enter music's filename: ");
+		System.out.println("Enter music's filename, type(Pop, Jazz, Rock, Country) and address separated by enter: ");
 		filename = inputScanner.nextLine();
-		System.out.print("Enter music's type: (Pop, Jazz, Rock, Country) ");
+		filename = inputScanner.nextLine();
 		type = inputScanner.nextLine();
-		System.out.print("Enter music's address: ");
 		address = inputScanner.nextLine();
 		mc.addMusic(filename, type, address);
 	}
@@ -56,14 +56,14 @@ public class Run {
 	/**
 	 * show the number of each type
 	 */
-	public void numberOfEachType() {
+	public static void numberOfEachType() {
 		System.out.println("Pop's number: " + mc.getNumberOfTypes("Pop") + "\nJazz's number: " + mc.getNumberOfTypes("Jazz") + "\nRock's number: " + mc.getNumberOfTypes("Rock") + "\nCountry's number: " + mc.getNumberOfTypes("Country"));
 	}
 
 	/**
 	 * show the list of musics
 	 */
-	public void listOfMusics() {
+	public static void listOfMusics() {
 		System.out.println("Musics: ");
 		mc.listAllMusics();
 	}
@@ -71,7 +71,7 @@ public class Run {
 	/**
 	 * remove a music
 	 */
-	public void removeMusic() {
+	public static void removeMusic() {
 		System.out.print("Enter the index of the music to be removed: ");
 		int index = inputScanner.nextInt();
 		mc.removeMusic(index);
@@ -80,16 +80,16 @@ public class Run {
 	/**
 	 * play a music
 	 */
-	public void playMusic() {
+	public static void playMusic() {
 		System.out.print("Enter the index of the music to be played: ");
 		int index = inputScanner.nextInt();
-		mc.removeMusic(index);
+		mc.startPlaying(index);
 	}
 
 	/**
 	 * stop playing the music
 	 */
-	public void stopPlaying() {
+	public static void stopPlaying() {
 		mc.stopPlaying();
 	}
 

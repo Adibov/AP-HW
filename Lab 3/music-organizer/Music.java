@@ -19,6 +19,22 @@ public class Music {
      * print the details of the music
      */
     public void print() {
-        System.out.println("Filename: " + filename + "\nType: " + type + "\nAddress: " + address);
+        System.out.println("Filename, Type, Address: " + filename + " " + type + " " + address);
+    }
+
+    /**
+     * type getter
+     * @return type
+     */
+    public String getType() {
+        return type;
+    }
+
+    /**
+     * filename getter
+     * @return filename
+     */
+    public String getFilename() {
+        return filename;
     }
 }

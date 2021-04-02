@@ -26,17 +26,17 @@ public class MusicPlayer {
             System.out.println("Some music is playing right now");
             return;
         }
-        System.out.println(music.filename + " is playing...");
+        System.out.println(music.getFilename() + " is playing...");
 		isPlaying = true;
     }
     
     /**
      * Stop playing the current music
      */
-    public void stop() {
+    public void stopPlaying() {
         if (isPlaying == false) {
             System.out.println("Nothing is playing!");
-            return
+            return;
         }
         System.out.println("player is stopped!");
 		isPlaying = false;
