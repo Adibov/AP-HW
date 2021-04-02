@@ -21,8 +21,12 @@ public class MusicPlayer {
      * The method returns once the playing has been started.
      * @param filename The file to be played.
      */
-    public void startPlaying(String filename) {
-        System.out.println(filename + " is playing...");
+    public void startPlaying(Music music) {
+        if (isPlaying == true) {
+            System.out.println("Some music is playing right now");
+            return;
+        }
+        System.out.println(music.filename + " is playing...");
 		isPlaying = true;
     }
     
@@ -30,6 +34,10 @@ public class MusicPlayer {
      * Stop playing the current music
      */
     public void stop() {
+        if (isPlaying == false) {
+            System.out.println("Nothing is playing!");
+            return
+        }
         System.out.println("player is stopped!");
 		isPlaying = false;
     }
