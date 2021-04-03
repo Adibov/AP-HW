@@ -50,10 +50,10 @@ public class User {
             System.out.println("Cannot deposit a negative amount!");
             return;
         }
-        if (!account.updateBalance(amount)))
+        if (!account.updateBalance(amount))
             return;
         account.updateBalance(amount);
-        account.addTransaction(new Tranasaction(amount));
+        account.addTransaction(new Transaction(amount));
     }
 
     /**
@@ -70,9 +70,9 @@ public class User {
             System.out.println("No such account found for this user!");
             return;
         }
-        if (!account.updateBalance(-amount)))
+        if (!account.updateBalance(-amount))
             return;
-        account.addTransaction(new Tranasaction(-amount));
+        account.addTransaction(new Transaction(-amount));
     }
 
     /**
@@ -89,8 +89,8 @@ public class User {
         if (!srcAccount.updateBalance(-amount))
             return;
         destAccount.updateBalance(amount);
-        srcAccount.addTransaction(new Tranasaction(-amount));
-        destAccount.addTransaction(new Tranasaction(amount));
+        srcAccount.addTransaction(new Transaction(-amount));
+        destAccount.addTransaction(new Transaction(amount));
     }
 
     /**
@@ -110,7 +110,52 @@ public class User {
             i.printAccountData();
     }
 
-    public void printUserDate() {
+    /**
+     * print user data, such as firstName lastName & id
+     */
+    public void printUserData() {
         System.out.println(firstName + " " + lastName + ", " + id);
     }
+
+    /**
+     * firstName getter
+     * @return
+     */
+    public String getFirstName() {
+        return firstName;
+    }
+
+    /**
+     * lastName getter
+     * @return
+     */
+    public String getLastName() {
+        return lastName;
+    }
+
+    /**
+     * id getter
+     * @return
+     */
+    public String getId() {
+        return id;
+    }
+
+    /**
+     * overrdie equals method
+     * @param externalUser
+     * @return
+     */
+    @Override
+    public boolean equals(Object externalUser) {
+        if (externalUser == this)
+            return true;
+        if (!(externalUser instanceof User))
+            return false;
+
+        User external = (User) externalUser;
+        return (this.firstName.equals(external.getFirstName()) && this.lastName.equals(external.getLastName()) && this.id.equals(external.getId()));
+    }
+
+
 }
