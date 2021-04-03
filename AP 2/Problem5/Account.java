@@ -34,8 +34,13 @@ public class Account {
      * update Account after each transaction
      * @param amount
      */
-    public void updateBalance(int amount) {
+    public boolean updateBalance(int amount) {
+        if (balance + amount < 0) {
+            System.out.println("Not enough money");
+            return false;
+        }
         balance += amount;
+        return true;
     }
 
     /**
