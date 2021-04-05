@@ -36,8 +36,9 @@ public class BankingSystem {
 
     /**
      * login user with the given id
+     * @return returns true if login was successful
      */
-    public void login(String id, String password) {
+    public boolean login(String id, String password) {
         User user;
         Iterator<User> it = users.iterator();
         while (it.hasNext()) {
@@ -47,9 +48,10 @@ public class BankingSystem {
         }
         if (user == null || !user.getPassword().equals(password)) {
             System.out.println("user doesn't exists or password is incorrect.");
-            return;
+            return false;
         }
         System.out.println("Logged in.");
+        return true;
     }
 
     /**
@@ -63,7 +65,7 @@ public class BankingSystem {
     /**
      * remove the given user from the banking system
      */
-    public removeUser(User user) {
+    public void removeUser(User user) {
         if (!users.contains(user)) {
             System.out.println("No such user found.");
             return;
@@ -97,7 +99,7 @@ public class BankingSystem {
     /**
      * remove the given account from the banking system
      */
-    public removeAccount(Account account) {
+    public void removeAccount(Account account) {
         if (!accounts.contains(account)) {
             System.out.println("No such account found.");
             return;
@@ -133,5 +135,25 @@ public class BankingSystem {
                 return account;
         }
         return null;
+    }
+
+    /**
+     * get number of accounts
+     * @return account counts
+     */
+    public int getAccountCount() {
+        return accounts.size();
+    }
+
+    /**
+     * return the account with the given index
+     * @param index
+     * @return account with index No.
+     */
+    public Account getAccount(int index) {
+        index--;
+        if (index < 1 || index >= accounts.size())
+            return null;
+        return accounts.get(index);
     }
 }

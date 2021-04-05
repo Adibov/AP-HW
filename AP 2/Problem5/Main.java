@@ -28,8 +28,11 @@ public class Main {
             logIn();
         else if (option == 3)
             systemAdmin();
-        else
+        else {
             exit();
+            return;
+        }
+        mainMenu();
     }
 
     /**
@@ -53,6 +56,24 @@ public class Main {
      * log in to an existing account
      */
     public void logIn() {
+        System.out.println();
+        String id, password;
+        System.out.print("Enter ID: ");
+        id = inputScanner.nextLine();
+        System.out.print("Enter Password: ");
+        password = inputScanner.nextLine();
+        if (!bank.login(id, password)) {
+            logIn();
+            return;
+        }
+        logInMenu();
+    }
+
+    /**
+     * show log in menu
+     */
+    public void logInMenu() {
+        System.out.println();
         System.out.println("Choose and option: ");
         System.out.println("1.Existing accounts");
         System.out.println("2.Add new account");
@@ -60,7 +81,7 @@ public class Main {
         int option = inputScanner.nextInt();
         if (option < 1 || option > 3) {
             System.out.println("Invalid input");
-            logIn();
+            logInMenu();
             return;
         }
 
@@ -68,14 +89,75 @@ public class Main {
             existingAccounts();
         else if (option == 2)
             addNewAccount();
-        else
+        else {
+            logOut();
+            return;
+        }
+        logInMenu();
+    }
 
-        String id, password;
-        System.out.print("Enter ID: ");
-        id = inputScanner.nextLine();
-        System.out.print("Enter Password: ");
-        password = inputScanner.nextLine();
-        bank.login(id, password);
+    /**
+     * existing accounts options
+     */
+    public void existingAccounts() {
+        System.out.println();
+        if (bank.getAccountCount() == 0) {
+            System.out.println("No account exist");
+            return;
+        }
+
+        System.out.println("Choose from list of accounts:");
+        bank.displayAccounts();
+        int option = inputScanner.nextInt();
+        if (option < 1 || option > bank.getAccountCount()) {
+            System.out.println("Invalid input");
+            existingAccounts();
+            return;
+        }
+
+        Account account = bank.getAccount(option);
+        System.out.println();
+        System.out.println("Choose an operation:");
+        System.out.println("1.WithDrawal");
+        System.out.println("2.Deposit");
+        System.out.println("3.Transfer");
+        System.out.println("4.Check balance");
+        System.out.println("5.Back");
+
+        option = inputScanner.nextInt();
+        if (option < 1 || option > 5) {
+            System.out.println("Invalid input");
+            existingAccounts();
+            return;
+        }
+
+        if (option == 1)
+            withDrawal();
+        else if (option == 2)
+            deposit();
+        else if (option == 3)
+            transfer();
+        else if (option == 4)
+            checkBalance();
+        else {
+            logInMenu();
+            return;
+        }
+        existingAccounts();
+    }
+
+    /**
+     * add a new account
+     */
+    public void addNewAccount() {
+
+    }
+
+    /**
+     * log out from the current user
+     */
+    public void logOut() {
+
     }
 
     /**
