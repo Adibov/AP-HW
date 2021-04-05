@@ -147,6 +147,34 @@ public class Main {
     }
 
     /**
+     * withdrawal some amount of money to the account
+     */
+    public void withDrawal() {
+
+    }
+
+    /**
+     * deposit some amount of money to the account
+     */
+    public void deposit() {
+
+    }
+
+    /**
+     * transfer some amount of money from one account to the another one
+     */
+    public void transfer() {
+
+    }
+
+    /**
+     * return available money
+     */
+    public void checkBalance() {
+
+    }
+
+    /**
      * add a new account
      */
     public void addNewAccount() {
