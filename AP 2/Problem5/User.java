@@ -3,7 +3,7 @@ import java.util.ArrayList;
 /**
  * User class to implement users
  * @author Adibov
- * @version 1.0-=
+ * @version 1.0
  */
 public class User {
     private String firstName, lastName, id, password;

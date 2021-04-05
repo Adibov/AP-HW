@@ -5,6 +5,8 @@ import java.util.UUID;
 
 /**
  * Banking System class to implement a simple banking simulator
+ * @author Adibov
+ * @version 1.0
  */
 public class BankingSystem {
     private ArrayList<User> users;
@@ -118,6 +120,11 @@ public class BankingSystem {
         }
     }
 
+    /**
+     * find account by serial
+     * @param serial
+     * @return desired account object
+     */
     public Account findAccount(String serial) {
         Iterator<Account> it = accounts.iterator();
         while (it.hasNext()) {
