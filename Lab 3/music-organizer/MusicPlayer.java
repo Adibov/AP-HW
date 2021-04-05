@@ -38,7 +38,7 @@ public class MusicPlayer {
             System.out.println("Nothing is playing!");
             return;
         }
-        System.out.println("player is stopped!");
+        System.out.printfln("player is stopped!");
 		isPlaying = false;
     }
 }

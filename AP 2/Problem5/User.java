@@ -114,7 +114,7 @@ public class User {
      * print user data, such as firstName lastName & id
      */
     public void printUserData() {
-        System.out.println(firstName + " " + lastName + ", " + id);
+        System.out.println(firstName + ", " + lastName + ", " + id);
     }
 
     /**
@@ -139,6 +139,14 @@ public class User {
      */
     public String getId() {
         return id;
+    }
+
+    /**
+     * password getter
+     * @return
+     */
+    public String getPassword() {
+        return password;
     }
 
     /**

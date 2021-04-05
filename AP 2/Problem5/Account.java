@@ -55,7 +55,7 @@ public class Account {
      * print account data
      */
     public void printAccountData() {
-        System.out.println(serial.toString() + ", " + id + ", " + firstName + ' ' + lastName + ", " + balance);
+        System.out.println(serial.toString() + ", " + type + ", " + balance);
     }
 
     /**
@@ -64,5 +64,12 @@ public class Account {
      */
     public int getBalance() {
         return balance;
+    }
+
+    /**
+     * get account serial
+     */
+    public UUID getSerial() {
+        return serial;
     }
 }
