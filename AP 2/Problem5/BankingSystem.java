@@ -119,6 +119,12 @@ public class BankingSystem {
     }
 
     public Account findAccount(String serial) {
-        
+        Iterator<Account> it = accounts.iterator();
+        while (it.hasNext()) {
+            Account account = it.next();
+            if (account.getSerial().toString().equals(serial))
+                return account;
+        }
+        return null;
     }
 }

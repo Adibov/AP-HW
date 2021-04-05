@@ -60,7 +60,7 @@ public class Account {
 
     /**
      * get account balance
-     * @return
+     * @return balance
      */
     public int getBalance() {
         return balance;
@@ -68,6 +68,7 @@ public class Account {
 
     /**
      * get account serial
+     * @return serial UUID
      */
     public UUID getSerial() {
         return serial;
