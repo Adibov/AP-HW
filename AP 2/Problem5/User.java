@@ -165,5 +165,12 @@ public class User {
         return (this.firstName.equals(external.getFirstName()) && this.lastName.equals(external.getLastName()) && this.id.equals(external.getId()));
     }
 
-
+    /**
+     * check if the given account is for this user
+     * @param account the given account
+     * @return true if the given account is for this user
+     */
+    public boolean accountExistance(Account account) {
+        return accountList.contains(account);
+    }
 }

@@ -7,8 +7,8 @@ import java.util.ArrayList;
  * @version 1.0
  */
 public class Account {
-    private UUID serial;
-    private String id, firstName, lastName, type;
+    final private UUID serial;
+    final private String id, firstName, lastName, type;
     private int balance;
     private ArrayList<Transaction> transactions;
 

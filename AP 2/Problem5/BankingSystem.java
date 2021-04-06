@@ -11,7 +11,6 @@ import java.util.UUID;
 public class BankingSystem {
     private ArrayList<User> users;
     private ArrayList<Account> accounts;
-    private Scanner inputScanner;
 
     /**
      * simple constructor
@@ -19,7 +18,6 @@ public class BankingSystem {
     public BankingSystem() {
         users = new ArrayList<User>();
         accounts = new ArrayList<Account>();
-        inputScanner = new Scanner(System.in);
     }
 
     /**
@@ -36,10 +34,10 @@ public class BankingSystem {
 
     /**
      * login user with the given id
-     * @return returns true if login was successful
+     * @return returns the logged in user
      */
-    public boolean login(String id, String password) {
-        User user;
+    public User login(String id, String password) {
+        User user = null;
         Iterator<User> it = users.iterator();
         while (it.hasNext()) {
             User currentUser = it.next();
@@ -48,10 +46,10 @@ public class BankingSystem {
         }
         if (user == null || !user.getPassword().equals(password)) {
             System.out.println("user doesn't exists or password is incorrect.");
-            return false;
+            return null;
         }
         System.out.println("Logged in.");
-        return true;
+        return user;
     }
 
     /**
@@ -83,7 +81,7 @@ public class BankingSystem {
         while (it.hasNext()) {
             User user = it.next();
             System.out.print("User " + num + ": ");
-            user.printAccountData();
+            user.printUserData();
             num++;
         }
     }
@@ -155,5 +153,35 @@ public class BankingSystem {
         if (index < 1 || index >= accounts.size())
             return null;
         return accounts.get(index);
+    }
+
+    /**
+     * find user by the given account
+     * @param account the given account
+     * @return result user
+     */
+    public User findUserByAccount(Account account) {
+        Iterator<User> it = users.iterator();
+        while (it.hasNext()) {
+            User user = it.next();
+            if (user.accountExistance(account))
+                return user;
+        }
+        return null;
+    }
+
+    /**
+     * find user by the given od
+     * @param id id of the target user
+     * @return user object
+     */
+    public User findUserById(String id) {
+        Iterator<User> it = users.iterator();
+        while (it.hasNext()) {
+            User user = it.next();
+            if (user.getId().equals(id))
+                return user;
+        }
+        return null;
     }
 }
