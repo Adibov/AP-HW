@@ -10,12 +10,13 @@ public class Main {
     BankingSystem bank = new BankingSystem();
 
     public void mainMenu() {
+        System.out.println();
         System.out.println("Please choose one option:");
         System.out.println("1.Sign up");
         System.out.println("2.Log in");
         System.out.println("3.System Admin");
         System.out.println("4.Exit");
-        int option = inputScanner.nextInt();
+        int option = inputScanner.nextInt(); inputScanner.nextLine(); // drop
 
         if (option < 1 || option > 4) {
             System.out.println("Invalid input");
@@ -39,14 +40,15 @@ public class Main {
      * sign up a new user
      */
     public void signUp() {
+        System.out.println();
         String firstName, lastName, id, password;
-        System.out.print("Enter Firstname: ");
+        System.out.println("Enter Firstname: ");
         firstName = inputScanner.nextLine();
-        System.out.print("Enter LastName: ");
+        System.out.println("Enter LastName: ");
         lastName = inputScanner.nextLine();
-        System.out.print("Enter ID: ");
+        System.out.println("Enter ID: ");
         id = inputScanner.nextLine();
-        System.out.print("Enter Password: ");
+        System.out.println("Enter Password: ");
         password = inputScanner.nextLine();
         User newUser = new User(firstName, lastName, id, password);
         bank.register(newUser);
@@ -58,13 +60,13 @@ public class Main {
     public void logIn() {
         System.out.println();
         String id, password;
-        System.out.print("Enter ID: ");
+        System.out.println("Enter ID: ");
         id = inputScanner.nextLine();
-        System.out.print("Enter Password: ");
+        System.out.println("Enter Password: ");
         password = inputScanner.nextLine();
         User user = bank.login(id, password);
         if (user == null) {
-            logIn();
+            mainMenu();
             return;
         }
         logInMenu(user);
@@ -76,11 +78,11 @@ public class Main {
      */
     public void logInMenu(User user) {
         System.out.println();
-        System.out.println("Choose and option: ");
+        System.out.println("Choose an option: ");
         System.out.println("1.Existing accounts");
         System.out.println("2.Add new account");
         System.out.println("3.Log out");
-        int option = inputScanner.nextInt();
+        int option = inputScanner.nextInt(); inputScanner.nextLine(); // drop
         if (option < 1 || option > 3) {
             System.out.println("Invalid input");
             logInMenu(user);
@@ -104,13 +106,13 @@ public class Main {
     public void existingAccounts(User user) {
         System.out.println();
         if (bank.getAccountCount() == 0) {
-            System.out.println("No account exist");
+            System.out.println("No account exists");
             return;
         }
 
         System.out.println("Choose from list of accounts:");
         bank.displayAccounts();
-        int option = inputScanner.nextInt();
+        int option = inputScanner.nextInt(); inputScanner.nextLine(); // drop
         if (option < 1 || option > bank.getAccountCount()) {
             System.out.println("Invalid input");
             existingAccounts(user);
@@ -126,7 +128,7 @@ public class Main {
         System.out.println("4.Check balance");
         System.out.println("5.Back");
 
-        option = inputScanner.nextInt();
+        option = inputScanner.nextInt(); inputScanner.nextLine(); // drop
         if (option < 1 || option > 5) {
             System.out.println("Invalid input");
             existingAccounts(user);
@@ -155,7 +157,7 @@ public class Main {
     public void withDrawal(Account account) {
         System.out.println();
         System.out.println("Enter an amount to withdrawal:");
-        int amount = inputScanner.nextInt();
+        int amount = inputScanner.nextInt(); inputScanner.nextLine(); // drop
         if (amount <= 0) {
             System.out.println("Invalid input");
             withDrawal(account);
@@ -178,7 +180,7 @@ public class Main {
     public void deposit(Account account) {
         System.out.println();
         System.out.println("Enter an amount to deposit:");
-        int amount = inputScanner.nextInt();
+        int amount = inputScanner.nextInt(); inputScanner.nextLine(); // drop
         if (amount <= 0) {
             System.out.println("Invalid input");
             deposit(account);
@@ -203,7 +205,7 @@ public class Main {
         System.out.println("Enter destination account's serial:");
         String serial = inputScanner.nextLine();
         System.out.println("Enter the amount of money to transfer:");
-        int amount = inputScanner.nextInt();
+        int amount = inputScanner.nextInt(); inputScanner.nextLine(); // drop
 
         Account destAccount = bank.findAccount(serial);
         if (destAccount == null) {
@@ -228,10 +230,11 @@ public class Main {
      * add a new account
      */
     public void addNewAccount(User user) {
+        System.out.println();
         int amount;
         String type;
         System.out.println("Enter account initial amount: ");
-        amount = inputScanner.nextInt();
+        amount = inputScanner.nextInt(); inputScanner.nextLine(); // drop
         System.out.println("Enter account type: ");
         type = inputScanner.nextLine();
         if (amount < 0) {
@@ -283,7 +286,7 @@ public class Main {
         System.out.println("3.Remove user");
         System.out.println("4.Remove account");
         System.out.println("5.Back");
-        int option = inputScanner.nextInt();
+        int option = inputScanner.nextInt(); inputScanner.nextLine(); // drop
         if (option == 1)
             bank.displayUsers();
         else if (option == 2)
@@ -306,8 +309,10 @@ public class Main {
      * remove user with the given id
      */
     public void removeUser() {
-        System.out.println("Enter the user id to be removed:");
+        System.out.println();
+        System.out.println("Enter the user id to be removed: ");
         String id = inputScanner.nextLine();
+        System.out.println("Mammad: " + id);
         User user = bank.findUserById(id);
         if (user == null) {
             System.out.println("No such user exists");
@@ -320,6 +325,7 @@ public class Main {
      * remove account with the given serial
      */
     public void removeAccount() {
+        System.out.println();
         System.out.println("Enter the serial account to be removed:");
         String serial = inputScanner.nextLine();
         Account account = bank.findAccount(serial);

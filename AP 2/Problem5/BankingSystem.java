@@ -24,6 +24,7 @@ public class BankingSystem {
      * register an account in the banking system
      */
     public void register(User user) {
+        System.out.println();
         if (users.contains(user)) {
             System.out.println("user already exists.");
             return;
@@ -37,6 +38,7 @@ public class BankingSystem {
      * @return returns the logged in user
      */
     public User login(String id, String password) {
+        System.out.println();
         User user = null;
         Iterator<User> it = users.iterator();
         while (it.hasNext()) {

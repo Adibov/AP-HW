@@ -162,7 +162,7 @@ public class User {
             return false;
 
         User external = (User) externalUser;
-        return (this.firstName.equals(external.getFirstName()) && this.lastName.equals(external.getLastName()) && this.id.equals(external.getId()));
+        return (this.id.equals(external.getId()));
     }
 
     /**
