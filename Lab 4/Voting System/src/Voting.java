@@ -3,12 +3,22 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
 
+/**
+ * Voting class to implement poll
+ * @author Adibov
+ * @version 1.0
+ */
 public class Voting {
     private final int type;
     private final String question;
     private ArrayList<Person> voters;
     private HashMap<String, HashSet<Vote>> polls;
 
+    /**
+     * simple constructor to make a new objects
+     * @param type poll type
+     * @param question poll question
+     */
     public Voting(int type, String question) {
         this.type = type;
         this.question = question;
@@ -16,6 +26,12 @@ public class Voting {
         this.polls = new HashMap();
     }
 
+    /**
+     * simple constructor to make a new objects
+     * @param type poll type
+     * @param question poll question
+     * @param pollsList options list
+     */
     public Voting(int type, String question, ArrayList<String> pollsList) {
         this.type = type;
         this.question = question;
@@ -30,18 +46,31 @@ public class Voting {
 
     }
 
+    /**
+     * question getter
+     * @return question
+     */
     public String getQuestion() {
         return this.question;
     }
 
+    /**
+     * create a new poll
+     * @param option poll's option
+     */
     public void createPoll(String option) {
         this.polls.put(option, new HashSet());
     }
 
+    /**
+     * vote for the given fields
+     * @param person voter
+     * @param votes person's votes
+     */
     public void vote(Person person, ArrayList<String> votes) {
         if (votes.size() > 1 && this.type == 0) {
             System.out.println("Number of votes doesn't match voting type.");
-        } else if (votes.contains(person)) {
+        } else if (voters.contains(person)) {
             System.out.println("This user has had voted before.");
         } else {
             Iterator var3 = votes.iterator();
@@ -66,6 +95,9 @@ public class Voting {
         }
     }
 
+    /**
+     * voters getter
+     */
     public void getVoters() {
         Iterator var1 = this.voters.iterator();
 
@@ -76,6 +108,9 @@ public class Voting {
 
     }
 
+    /**
+     * prints voters
+     */
     public void printVotes() {
         System.out.println();
         System.out.println("Question: " + question);
@@ -83,6 +118,9 @@ public class Voting {
             System.out.println(i + ": " + polls.get(i).size());
     }
 
+    /**
+     * prints questions
+     */
     public void getPolls() {
         int num = 1;
         for(Iterator var2 = this.polls.keySet().iterator(); var2.hasNext(); ++num) {
@@ -92,10 +130,19 @@ public class Voting {
 
     }
 
+    /**
+     * get polls size
+     * @return polls size
+     */
     public int getPollsSize() {
         return polls.size();
     }
 
+    /**
+     * get poll by index
+     * @param index poll's index
+     * @return poll
+     */
     public String getPollByIndex(int index) {
         for (String i : polls.keySet()) {
             index--;

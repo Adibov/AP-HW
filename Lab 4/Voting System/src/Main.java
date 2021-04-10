@@ -1,6 +1,11 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
+/**
+ * main class to run program
+ * @author Adibov
+ * @version 1.0
+ */
 public class Main {
     final private static VotingSystem voting = new VotingSystem();
     final private static Scanner inputScanner = new Scanner(System.in);
@@ -189,6 +194,7 @@ public class Main {
     }
 
     public static void showVotes() {
+        System.out.println();
         voting.getVoting();
     }
 }
