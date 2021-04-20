@@ -32,6 +32,20 @@ public class LinkedList {
     }
 
     /**
+     * add given node to the end of the list
+     * @param node new node
+     */
+    public void add(Node node) {
+        node.setNext(null);
+        cur = head;
+        while (cur.getNext() != null)
+            cur = cur.getNext();
+        cur.setNext(node);
+        cur = node;
+        size++;
+    }
+
+    /**
      * add given number before the list
      * @param k new node's value
      */
@@ -39,6 +53,16 @@ public class LinkedList {
         cur = head;
         Node newNode = new Node(k, head.getNext());
         head.setNext(newNode);
+        size++;
+    }
+
+    /**
+     * add given node before the list
+     * @param node new node
+     */
+    public void addFirst(Node node) {
+        cur = head;
+        head.setNext(node);
         size++;
     }
 
@@ -74,17 +98,29 @@ public class LinkedList {
     }
 
     /**
-     * remove the node with the given index
+     * remove the node with the given index, and return its value
      * @param index given index
+     * @return removed node
      */
-    public void removeIndex(int index) {
-        if (index >= size)
-            return;
+    public Node removeIndex(int index) {
+        if (index < 1 || size < index)
+            return null;
 
+        Node result;
         cur = head;
-        for (int i = 0; i < index; i++)
+        for (int i = 1; i < index; i++)
             cur = cur.getNext();
+        result = cur.getNext();
         cur.setNext(cur.getNext().getNext());
         size--;
+        return result;
+    }
+
+    /**
+     * size getter
+     * @return LinkedList size
+     */
+    public int getSize() {
+        return size;
     }
 }

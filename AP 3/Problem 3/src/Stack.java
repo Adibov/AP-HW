@@ -4,7 +4,7 @@
  * @version 1.0
  */
 public class Stack {
-    private int[] values;
+    private Node[] values;
     private int size;
     final private int limit = 100;
 
@@ -12,7 +12,7 @@ public class Stack {
      * simple constructor to make a new object
      */
     public Stack() {
-        values = new int[limit];
+        values = new Node[limit];
         size = 0;
     }
 
@@ -25,17 +25,29 @@ public class Stack {
             System.out.println("Stack Overflow");
             return;
         }
-        values[size++] = x;
+        values[size++] = new Node(x);
+    }
+
+    /**
+     * push the given node to the stack
+     * @param node the given node
+     */
+    public void push(Node node) {
+        if (size == limit) {
+            System.out.println("Stack Overflow");
+            return;
+        }
+        values[size++] = node;
     }
 
     /**
      * pop the top element and return it
      * @return top element
      */
-    public int pop() {
+    public Node pop() {
         if (size == 0) {
             System.out.println("Stack Underflow.");
-            return -1;
+            return null;
         }
         return values[--size];
     }
@@ -44,10 +56,10 @@ public class Stack {
      * return the top element
      * @return top element
      */
-    public int peak() {
+    public Node peak() {
         if (size == 0) {
             System.out.println("Stack Underflow.");
-            return -1;
+            return null;
         }
         return values[size - 1];
     }
