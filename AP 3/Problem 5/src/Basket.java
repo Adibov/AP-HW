@@ -1,22 +1,17 @@
 import java.util.HashMap;
 
-/**
- * Inventory class to implement stock
- * @author Adibov
- * @version 1.0
- */
-public class Inventory {
+public class Basket {
     final private HashMap<Product, Integer> stock;
 
     /**
      * simple constructor to make a new object
      */
-    public Inventory() {
+    public Basket() {
         stock = new HashMap<Product, Integer>();
     }
 
     /**
-     * add the given product to the inventory
+     * add the given product to the basket
      * @param newProduct new Product
      */
     public void addProduct(Product newProduct) {
@@ -27,7 +22,7 @@ public class Inventory {
     }
 
     /**
-     * remove the given product from the inventory
+     * remove the given product from the basket
      * @param product new Product
      */
     public void removeProduct(Product product) {
@@ -41,21 +36,19 @@ public class Inventory {
     }
 
     /**
-     * change product availability
-     * @param product product
-     * @param value new quantity
+     * calculate total product price of the basket
+     * @return total price
      */
-    public void changeStock(Product product, int value) {
-        if (!stock.containsKey(product))
-            addProduct(product);
-        stock.put(product, value);
-        if (value == 0)
-            stock.remove(product);
+    public double totalPrice() {
+        double result = 0;
+        for (Product product : stock.keySet())
+            result += product.getPrice() * stock.get(product);
+        return result;
     }
 
     @Override
     public String toString() {
-        String result = "Inventory{";
+        String result = "Basket{";
         for (Product product : stock.keySet()) {
             result += product.toString();
             result += ": " + stock.get(product);
