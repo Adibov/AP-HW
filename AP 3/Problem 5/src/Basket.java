@@ -1,5 +1,11 @@
 import java.util.HashMap;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import org.json.simple.*;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
+
 public class Basket {
     final private HashMap<Product, Integer> stock;
 
@@ -46,14 +52,52 @@ public class Basket {
         return result;
     }
 
+    /**
+     * return stock's size
+     * @return stock's size
+     */
+    public int getSize() {
+        return stock.size();
+    }
+
+    /**
+     * return Product with the given index
+     * @param index the given index
+     * @return result Product
+     */
+    public Product getProduct(int index) {
+        for (Product product : stock.keySet()) {
+            index--;
+            if (index == 0)
+                return product;
+        }
+        return null;
+    }
+
+    /**
+     * Override toString method
+     * @return String result
+     */
     @Override
     public String toString() {
-        String result = "Basket{";
+        int index = 1;
+        String result = "Itemsincart:\n";
         for (Product product : stock.keySet()) {
-            result += product.toString();
-            result += ": " + stock.get(product);
+            result += (index + ")");
+            JSONObject json = new JSONObject();
+            json.put("Product", product);
+            Gson gson = new GsonBuilder().setPrettyPrinting().create();
+            JSONParser parser = new JSONParser();
+            try {
+                json = (JSONObject) parser.parse(json.toString());
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+            String prettyJsonString = gson.toJson(json);
+            result += prettyJsonString;
+            result += ("instock: " + stock.get(product) + "\n");
+            index++;
         }
-        result += '}';
         return result;
     }
 }

@@ -1,6 +1,7 @@
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Objects;
+import org.json.simple.*;
 
 /**
  * Product class to implement products
@@ -63,14 +64,14 @@ public class Product {
 
     @Override
     public String toString() {
+        JSONObject json = new JSONObject();
         DateTimeFormatter formatters = DateTimeFormatter.ofPattern("d/MM/uuuu");
-        return "Product{" +
-                "name='" + name + '\'' +
-                ", category='" + category + '\'' +
-                ", weight=" + weight +
-                ", price=" + price +
-                ", manufacture=" + manufacture.format(formatters) +
-                ", expiration=" + expiration.format(formatters) +
-                '}';
+        json.put("Name", name);
+        json.put("Category", category);
+        json.put("Weight", weight);
+        json.put("Price", price);
+        json.put("Manufacture", manufacture.format(formatters));
+        json.put("Expiration", expiration.format(formatters));
+        return json.toString();
     }
 }
