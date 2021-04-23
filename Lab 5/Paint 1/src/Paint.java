@@ -48,12 +48,15 @@ public class Paint {
         System.out.println("Triangles:");
         for (Triangle t : triangles)
             t.draw();
+        System.out.println(); // blank line
         System.out.println("Circles:");
         for (Circle c : circles)
             c.draw();
+        System.out.println(); // blank line
         System.out.println("Rectangles:");
         for (Rectangle r : rectangles)
             r.draw();
+        System.out.println(); // blank line
     }
 
     /**
@@ -62,12 +65,15 @@ public class Paint {
     public void printAll() {
         System.out.println("Triangles:");
         for (Triangle t : triangles)
-            t.toString();
+            System.out.println(t.toString());
+        System.out.println(); // blank line
         System.out.println("Circles:");
         for (Circle c : circles)
-            c.toString();
+            System.out.println(c.toString());
+        System.out.println(); // blank line
         System.out.println("Rectangles:");
         for (Rectangle r : rectangles)
-            r.toString();
+            System.out.println(r.toString());
+        System.out.println(); // blank line
     }
 }

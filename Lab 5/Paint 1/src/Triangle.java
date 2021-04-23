@@ -13,9 +13,13 @@ public class Triangle {
 
     /**
      * simple constructor and checker to make a valid object
-     * @param sides rectangle's sides
+     * @param a a side
+     * @param b a side
+     * @param c a side
      */
-    public Triangle(ArrayList<Integer> sides) {
+    public Triangle(int a, int b, int c) {
+        ArrayList<Integer> sides = new ArrayList<>();
+        sides.add(a); sides.add(b); sides.add(c);
         Collections.sort(sides);
         if (sides.size() != 3) {
             System.out.println("There must be 3 sides.");
@@ -49,24 +53,24 @@ public class Triangle {
      * @return triangle's perimeter
      */
     public double calculatePerimeter() {
-        double a = sides.get(0), b = sides.get(1), c = sides.get(2);
-        double p = (double)(a + b + c) / 2.0;
-        return Math.sqrt(p * (p - a) * (p - b) * (p - c));
+        return sides.get(0) + sides.get(1) + sides.get(2);
     }
 
     /**
      * calculate the area of the triangle
      * @return triangle's area
      */
-    public int calculateArea() {
-        return sides.get(0) * sides.get(1);
+    public double calculateArea() {
+        double a = sides.get(0), b = sides.get(1), c = sides.get(2);
+        double p = (double)(a + b + c) / 2.0;
+        return Math.sqrt(p * (p - a) * (p - b) * (p - c));
     }
 
     /**
      * draw the rectangle
      */
     public void draw() {
-        System.out.println("Draw a rectangle with these sides: " + sides.get(0) + " and " + sides.get(1));
+        System.out.println("Draw a triangle with these sides: " + sides.get(0) + "," + sides.get(1) + "," + sides.get(2));
     }
 
     /**
@@ -78,10 +82,8 @@ public class Triangle {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Rectangle rectangle = (Rectangle) o;
-        if (Objects.equals(sides, rectangle.sides))
-            return true;
-        return sides.get(0).equals(rectangle.getSides().get(0)) && sides.get(2).equals(rectangle.getSides().get(2));
+        Triangle triangle = (Triangle) o;
+        return sides.equals(triangle.sides);
     }
 
     /**
@@ -90,7 +92,7 @@ public class Triangle {
      */
     @Override
     public String toString() {
-        return "Rectangle{" +
+        return "Triangle{" +
                 "sides=" + sides +
                 '}';
     }

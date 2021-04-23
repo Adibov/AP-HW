@@ -1,6 +1,6 @@
 import java.util.ArrayList;
-        import java.util.Collections;
-        import java.util.Objects;
+import java.util.Collections;
+import java.util.Objects;
 
 /**
  * Rectangle class to implement rectangle shape
@@ -12,9 +12,14 @@ public class Rectangle {
 
     /**
      * simple constructor and checker to make a valid object
-     * @param sides rectangle's sides
+     * @param x1 a side
+     * @param x2 a side
+     * @param y1 a side
+     * @param y2 a side
      */
-    public Rectangle(ArrayList<Integer> sides) {
+    public Rectangle(int x1, int x2, int y1, int y2) {
+        ArrayList<Integer> sides = new ArrayList<>();
+        sides.add(x1); sides.add(x2); sides.add(y1); sides.add(y2);
         Collections.sort(sides);
         if (sides.size() != 4) {
             System.out.println("There must be 4 sides.");
@@ -63,7 +68,7 @@ public class Rectangle {
      * draw the rectangle
      */
     public void draw() {
-        System.out.println("Draw a rectangle with these sides: " + sides.get(0) + " and " + sides.get(1));
+        System.out.println("Draw a rectangle with these sides: " + sides.get(0) + "," + sides.get(2));
     }
 
     /**
