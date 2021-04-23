@@ -5,7 +5,7 @@ import java.util.ArrayList;
  * @author Adibov
  * @version 1.0
  */
-public class Paint extends Shape {
+public class Paint {
     private ArrayList<Triangle> triangles = new ArrayList<Triangle>();
     private ArrayList<Circle> circles = new ArrayList<Circle>();
     private ArrayList<Rectangle> rectangles = new ArrayList<Rectangle>();

@@ -71,6 +71,11 @@ public class Shape {
         }
     }
 
+    /**
+     * check if this object is equals to the given object
+     * @param obj the given object
+     * @return boolean result
+     */
     @Override
     public boolean equals(Object obj) {
         if (this == obj) return true;
@@ -94,6 +99,10 @@ public class Shape {
             return false;
     }
 
+    /**
+     * return details in string format
+     * @return string result
+     */
     @Override
     public String toString() {
         if (this instanceof Circle)

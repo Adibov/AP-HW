@@ -8,8 +8,6 @@ import java.util.Objects;
  * @version 1.0
  */
 public class Rectangle extends Polygon {
-    private ArrayList<Integer> sides;
-
     /**
      * simple constructor and checker to make a valid object
      * @param x1 a side
@@ -18,7 +16,7 @@ public class Rectangle extends Polygon {
      * @param y2 a side
      */
     public Rectangle(int x1, int x2, int y1, int y2) {
-        ArrayList<Integer> sides = new ArrayList<>();
+        super();
         sides.add(x1); sides.add(x2); sides.add(y1); sides.add(y2);
         Collections.sort(sides);
         if (sides.size() != 4) {
@@ -30,14 +28,6 @@ public class Rectangle extends Polygon {
             return;
         }
         this.sides = sides;
-    }
-
-    /**
-     * sides getter
-     * @return list of sides
-     */
-    public ArrayList<Integer> getSides() {
-        return sides;
     }
 
     /**

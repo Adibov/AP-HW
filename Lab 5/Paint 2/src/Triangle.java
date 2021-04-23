@@ -9,8 +9,6 @@ import  java.lang.Math;
  * @version 1.0
  */
 public class Triangle extends Polygon {
-    private ArrayList<Integer> sides;
-
     /**
      * simple constructor and checker to make a valid object
      * @param a a side
@@ -18,7 +16,7 @@ public class Triangle extends Polygon {
      * @param c a side
      */
     public Triangle(int a, int b, int c) {
-        ArrayList<Integer> sides = new ArrayList<>();
+        super();
         sides.add(a); sides.add(b); sides.add(c);
         Collections.sort(sides);
         if (sides.size() != 3) {
@@ -29,15 +27,6 @@ public class Triangle extends Polygon {
             System.out.println("Cannot make a trianlge with the given sides.");
             return;
         }
-        this.sides = sides;
-    }
-
-    /**
-     * sides getter
-     * @return list of sides
-     */
-    public ArrayList<Integer> getSides() {
-        return sides;
     }
 
     /**
