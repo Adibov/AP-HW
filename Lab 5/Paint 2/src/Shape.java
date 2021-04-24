@@ -106,24 +106,9 @@ public class Shape {
     @Override
     public String toString() {
         if (this instanceof Circle)
-            return "Circle{" +
-                    "radius=" + ((Circle) this).getRadius() +
-                    '}';
-        else if (this instanceof Polygon) {
-            ArrayList<Integer> sides;
-            if (this instanceof Rectangle) {
-                sides = ((Rectangle) this).getSides();
-                return "Rectangle{" +
-                        "sides=" + sides +
-                        '}';
-            }
-            else if (this instanceof Triangle) {
-                sides = ((Triangle) this).getSides();
-                return "Triangle{" +
-                        "sides=" + sides +
-                        '}';
-            }
-        }
+            return ((Circle) this).toString();
+        else if (this instanceof Polygon)
+            return ((Polygon) this).toString();
         return "Shape{}";
     }
 }

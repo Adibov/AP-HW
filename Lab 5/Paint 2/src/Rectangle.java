@@ -16,18 +16,10 @@ public class Rectangle extends Polygon {
      * @param y2 a side
      */
     public Rectangle(int x1, int x2, int y1, int y2) {
-        super();
-        sides.add(x1); sides.add(x2); sides.add(y1); sides.add(y2);
+        super(x1, x2, y1, y2);
         Collections.sort(sides);
-        if (sides.size() != 4) {
-            System.out.println("There must be 4 sides.");
-            return;
-        }
-        if (!(sides.get(0).equals(sides.get(1)) && sides.get(2).equals(sides.get(3)))) {
+        if (!(sides.get(0).equals(sides.get(1)) && sides.get(2).equals(sides.get(3))))
             System.out.println("There must be 4 sides, pairwise equal.");
-            return;
-        }
-        this.sides = sides;
     }
 
     /**
@@ -36,5 +28,16 @@ public class Rectangle extends Polygon {
      */
     public boolean isSquare() {
         return sides.get(0).equals(sides.get(3));
+    }
+
+    /**
+     * Override toString method
+     * @return string result
+     */
+    @Override
+    public String toString() {
+        return "Rectangle{" +
+                super.toString() +
+                "}";
     }
 }

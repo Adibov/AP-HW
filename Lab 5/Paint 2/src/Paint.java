@@ -6,9 +6,7 @@ import java.util.ArrayList;
  * @version 1.0
  */
 public class Paint {
-    private ArrayList<Triangle> triangles = new ArrayList<Triangle>();
-    private ArrayList<Circle> circles = new ArrayList<Circle>();
-    private ArrayList<Rectangle> rectangles = new ArrayList<Rectangle>();
+    private ArrayList<Shape> shapes = new ArrayList<Shape>();
 
     /**
      * simple constructor to make a new object
@@ -18,44 +16,20 @@ public class Paint {
     }
 
     /**
-     * add the given triangle to the list
-     * @param triangle the given triangle
+     * add the given shape to the list
+     * @param shape the given shape
      */
-    public void addTriangle(Triangle triangle) {
-        triangles.add(triangle);
-    }
-
-    /**
-     * add the given cricle to the list
-     * @param circle the given circle
-     */
-    public void addCircle(Circle circle) {
-        circles.add(circle);
-    }
-
-    /**
-     * add the given rectangle to the list
-     * @param rectangle the given rectangle
-     */
-    public void addRectangle(Rectangle rectangle) {
-        rectangles.add(rectangle);
+    public void addShape(Shape shape) {
+        shapes.add(shape);
     }
 
     /**
      * calls all shapes draw method
      */
     public void drawAll() {
-        System.out.println("Triangles:");
-        for (Triangle t : triangles)
-            t.draw();
-        System.out.println(); // blank line
-        System.out.println("Circles:");
-        for (Circle c : circles)
-            c.draw();
-        System.out.println(); // blank line
-        System.out.println("Rectangles:");
-        for (Rectangle r : rectangles)
-            r.draw();
+        System.out.println("Shapes:");
+        for (Shape shape : shapes)
+            shape.draw();
         System.out.println(); // blank line
     }
 
@@ -63,17 +37,18 @@ public class Paint {
      * class all shapes toString method
      */
     public void printAll() {
-        System.out.println("Triangles:");
-        for (Triangle t : triangles)
-            System.out.println(t.toString());
+        System.out.println("Shapes:");
+        for (Shape shape : shapes)
+            System.out.println(shape.toString());
         System.out.println(); // blank line
-        System.out.println("Circles:");
-        for (Circle c : circles)
-            System.out.println(c.toString());
-        System.out.println(); // blank line
-        System.out.println("Rectangles:");
-        for (Rectangle r : rectangles)
-            System.out.println(r.toString());
-        System.out.println(); // blank line
+    }
+
+    public void describeEqualSides() {
+        System.out.println("Special shapes:");
+        for (Shape shape : shapes)
+            if (shape instanceof Triangle && ((Triangle) shape).isEquilateral())
+                System.out.println(((Triangle) shape).toString());
+            else if (shape instanceof Rectangle && ((Rectangle) shape).isSquare())
+                System.out.println(((Rectangle) shape).toString());
     }
 }

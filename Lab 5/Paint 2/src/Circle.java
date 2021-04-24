@@ -24,4 +24,15 @@ public class Circle extends Shape {
     public int getRadius() {
         return radius;
     }
+
+    /**
+     * Override toString method
+     * @return string result
+     */
+    @Override
+    public String toString() {
+        return "Circle{" +
+                "radius=" + radius +
+                "}";
+    }
 }

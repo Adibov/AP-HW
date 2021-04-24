@@ -1,10 +1,11 @@
 import java.util.ArrayList;
 
 public class Polygon extends Shape {
-    protected ArrayList<Integer> sides;
+    protected ArrayList<Integer> sides = new ArrayList<Integer>();
 
-    public Polygon() {
-        sides  = new ArrayList<Integer>();
+    public Polygon(int... sides) {
+        for (int side : sides)
+            this.sides.add(side);
     }
 
     /**
@@ -13,5 +14,14 @@ public class Polygon extends Shape {
      */
     public ArrayList<Integer> getSides() {
         return sides;
+    }
+
+    /**
+     * Override toString method
+     * @return string result
+     */
+    @Override
+    public String toString() {
+        return "sides=" + sides;
     }
 }

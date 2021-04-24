@@ -16,17 +16,10 @@ public class Triangle extends Polygon {
      * @param c a side
      */
     public Triangle(int a, int b, int c) {
-        super();
-        sides.add(a); sides.add(b); sides.add(c);
+        super(a, b, c);
         Collections.sort(sides);
-        if (sides.size() != 3) {
-            System.out.println("There must be 3 sides.");
-            return;
-        }
-        if (sides.get(0) + sides.get(1) <= sides.get(2)) {
-            System.out.println("Cannot make a trianlge with the given sides.");
-            return;
-        }
+        if (sides.get(0) + sides.get(1) <= sides.get(2))
+            System.out.println("Cannot make a triangle with the given sides.");
     }
 
     /**
@@ -35,5 +28,16 @@ public class Triangle extends Polygon {
      */
     public boolean isEquilateral() {
         return sides.get(0).equals(sides.get(2));
+    }
+
+    /**
+     * Override toString method
+     * @return string result
+     */
+    @Override
+    public String toString() {
+        return "Triangle{" +
+                super.toString() +
+                "}";
     }
 }

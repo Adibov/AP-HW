@@ -12,14 +12,15 @@ public class Main {
 
         Paint paint = new Paint();
 
-        paint.addCircle(circle1);
-        paint.addCircle(circle2);
-        paint.addRectangle(rect1);
-        paint.addRectangle(rect2);
-        paint.addRectangle(rect3);
-        paint.addTriangle(tri1);
-        paint.addTriangle(tri2);
+        paint.addShape(circle1);
+        paint.addShape(circle2);
+        paint.addShape(rect1);
+        paint.addShape(rect2);
+        paint.addShape(rect3);
+        paint.addShape(tri1);
+        paint.addShape(tri2);
         paint.drawAll();
         paint.printAll();
+        paint.describeEqualSides();
     }
 }
