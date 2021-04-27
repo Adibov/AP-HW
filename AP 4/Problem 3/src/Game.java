@@ -72,7 +72,7 @@ public class Game {
             cards.add(new Card8(color));
             cards.add(new Card10(color));
             cards.add(new CardA(color));
-            cards.add(new CardB(color));
+            cards.add(new Card(12, color)); // CardA
         }
     }
 
@@ -116,6 +116,24 @@ public class Game {
     }
 
     /**
+     * remove the given card from the given player
+     * @param card the given card
+     * @param player the given player
+     */
+    public void removeCardFromPlayer(Card card, Player player) {
+        player.removeCard(card);
+        cards.add(card);
+    }
+
+    /**
+     * add the given card to the cards list
+     * @param card the given card
+     */
+    public void addCard(Card card) {
+        cards.add(card);
+    }
+
+    /**
      * remove the given card from the cards list
      * @param card the given card
      */
@@ -140,16 +158,13 @@ public class Game {
      * advance a turn
      */
     public void advanceTurn() {
-        Card card = players.get(currentPlayer).advanceTurn(fieldCard);
-        if (card == null || !fieldCard.checkCardValidation(card)) {
+        Card droppedCard = players.get(currentPlayer).advanceTurn(fieldCard);
+        if (droppedCard == null || !fieldCard.checkCardValidation(droppedCard)) {
             penalizePlayer(players.get(currentPlayer), 1);
-            incrementTurn(1);
+            incrementTurn(direction);
             return;
         }
-
-        if (card.getNumber() != 7)
-            fieldCard.setContinuous(false);
-
+        droppedCard.applyCard(this);
     }
 
     /**
@@ -174,5 +189,75 @@ public class Game {
     public void incrementTurn(int amount) {
         currentPlayer += (amount * direction) % playerCount;
         currentPlayer = (currentPlayer + playerCount) % playerCount;
+    }
+
+    /**
+     * fieldCard setter
+     * @param fieldCard new value
+     */
+    public void setFieldCard(FieldCard fieldCard) {
+        this.fieldCard = fieldCard;
+    }
+
+    /**
+     * currentPlayer gettter
+     * @return currentPlayer
+     */
+    public int getCurrentPlayer() {
+        return currentPlayer;
+    }
+
+    /**
+     * players getter
+     * @return players
+     */
+    public ArrayList<Player> getPlayers() {
+        return players;
+    }
+
+    /**
+     * fieldCard getter
+     * @return fieldCard
+     */
+    public FieldCard getFieldCard() {
+        return fieldCard;
+    }
+
+    /**
+     * direction getter
+     * @return direction
+     */
+    public int getDirection() {
+        return direction;
+    }
+
+    /**
+     * direction setter
+     * @param direction new value
+     */
+    public void setDirection(int direction) {
+        this.direction = direction;
+    }
+
+    /**
+     * show players except one
+     * @param index the exception player
+     */
+    public void showPlayers(int index) {
+        System.out.println("Players:");
+        int num = 1;
+        for (Player player : players) {
+            if (num != index)
+                System.out.println("#" + num + ": " + player);
+            num++;
+        }
+    }
+
+    /**
+     * player count getter
+     * @return player count
+     */
+    public int getPlayerCount() {
+        return playerCount;
     }
 }

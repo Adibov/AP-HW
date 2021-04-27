@@ -6,4 +6,14 @@ public class Card10 extends SpecialCard {
     public Card10(COLOR color) {
         super(10, color);
     }
+
+    /**
+     * apply card to the game
+     * @param game the given game
+     */
+    @Override
+    public void applyCard(Game game) {
+        game.setDirection(-game.getDirection());
+        super.applyCard(game);
+    }
 }

@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.Objects;
+import java.util.Random;
 
 public class Player {
     protected String name;
@@ -30,11 +31,13 @@ public class Player {
     }
 
     /**
-     * return number of player's card
-     * @return cards number
+     * remove the given cards from the list
+     * @param card the given card
      */
-    public int getCardsNumber() {
-        return cards.size();
+    public void removeCard(Card card) {
+        if (!cards.contains(card))
+            throw new IllegalArgumentException("Card doesn't exist in the hand.");
+        cards.remove(card);
     }
 
     /**
@@ -46,6 +49,34 @@ public class Player {
         if (cards.size() == 0)
             throw new IllegalArgumentException("No card exits to drop");
         return cards.get(0);
+    }
+
+    /**
+     * return a random card from cards
+     * @return random card
+     */
+    public Card randomCard() {
+        if (cards.size() == 0)
+            throw new IllegalArgumentException("Cannot choose a random card from an empty list.");
+        Random randomGen = new Random();
+        int index = randomGen.nextInt(cards.size());
+        return cards.get(index);
+    }
+
+    /**
+     * return number of player's card
+     * @return cards number
+     */
+    public int getCardsNumber() {
+        return cards.size();
+    }
+
+    /**
+     * getCards getter
+     * @return cards
+     */
+    public ArrayList<Card> getCards() {
+        return cards;
     }
 
     /**

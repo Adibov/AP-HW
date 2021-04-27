@@ -1,4 +1,5 @@
 import java.util.Objects;
+import java.util.Scanner;
 
 /**
  * color enum to override colors
@@ -19,6 +20,7 @@ public class Card {
      */
     protected int number;
     protected COLOR color;
+    final protected Scanner inputScanner = new Scanner(System.in);
 
     /**
      * constructor to make a new valid object
@@ -32,6 +34,18 @@ public class Card {
             throw new IllegalArgumentException("Invalid card color.");
         this.number = number;
         this.color = color;
+    }
+
+    /**
+     * apply card to the game
+     * @param game the given game
+     */
+    public void applyCard(Game game) {
+        Player player = game.getPlayers().get(game.getCurrentPlayer());
+        game.addCard(game.getFieldCard());
+        game.setFieldCard(new FieldCard(number, color, number == 7));
+        game.addCard(this);
+        game.incrementTurn(1);
     }
 
     /**
@@ -100,5 +114,13 @@ public class Card {
     @Override
     public int hashCode() {
         return Objects.hash(number, color);
+    }
+
+    @Override
+    public String toString() {
+        return "Card{" +
+                "number=" + number +
+                ", color=" + color +
+                '}';
     }
 }
