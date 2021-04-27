@@ -1,3 +1,15 @@
+import java.util.Objects;
+
+/**
+ * color enum to override colors
+ */
+enum COLOR {
+    BLACK,
+    RED,
+    BLUE,
+    GREEN
+}
+
 /**
  * Card class to implements Cards common behaviours
  */
@@ -5,15 +17,8 @@ public class Card {
     /**
      * we consider A, B, C, D as 11, 12, 13, 14 in card number
      */
-    int number;
-    COLOR color;
-
-    enum COLOR {
-        BLACK,
-        RED,
-        BLUE,
-        GREEN
-    }
+    protected int number;
+    protected COLOR color;
 
     /**
      * constructor to make a new valid object
@@ -49,5 +54,43 @@ public class Card {
      */
     public boolean isSpecial() {
         return number != 3 && number != 4 && number != 5 && number != 6 && number != 9 && number != 13 && number != 14;
+    }
+
+    /**
+     * number getter
+     * @return card number
+     */
+    public int getNumber() {
+        return number;
+    }
+
+    /**
+     * color getter
+     * @return card color
+     */
+    public COLOR getColor() {
+        return color;
+    }
+
+    /**
+     * override equals method
+     * @param o given object
+     * @return boolean result
+     */
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Card)) return false;
+        Card card = (Card) o;
+        return number == card.number && color == card.color;
+    }
+
+    /**
+     * override hashCode method
+     * @return boolean result
+     */
+    @Override
+    public int hashCode() {
+        return Objects.hash(number, color);
     }
 }
