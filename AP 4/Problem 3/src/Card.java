@@ -7,7 +7,6 @@ public class Card {
      */
     int number;
     COLOR color;
-    boolean isSpecial;
 
     enum COLOR {
         BLACK,
@@ -20,16 +19,14 @@ public class Card {
      * constructor to make a new valid object
      * @param number card number
      * @param color card color
-     * @param isSpecial check if the card is special
      */
-    public Card(int number, COLOR color, boolean isSpecial) {
+    public Card(int number, COLOR color) {
         if (number < 2 || number > 14)
             throw new IllegalArgumentException("Invalid card number.");
         if (color != COLOR.BLACK && color != COLOR.BLUE && color != COLOR.GREEN && color != COLOR.RED)
             throw new IllegalArgumentException("Invalid card color.");
         this.number = number;
         this.color = color;
-        this.isSpecial = isSpecial;
     }
 
     /**
@@ -44,5 +41,13 @@ public class Card {
                 return 10;
         }
         return number;
+    }
+
+    /**
+     * check if the card is special
+     * @return boolean result
+     */
+    public boolean isSpecial() {
+        return number != 3 && number != 4 && number != 5 && number != 6 && number != 9 && number != 13 && number != 14;
     }
 }

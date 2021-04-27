@@ -1,7 +1,12 @@
 public class NormalCard extends Card {
+    /**
+     * simple constructor to make a new valid object
+     * @param number card number
+     * @param color card color
+     */
     public NormalCard(int number, COLOR color) {
-        super(number, color, false);
-        if (number != 3 && number != 4 && number != 5 && number != 6 && number != 9 && number != 13 && number != 14)
+        super(number, color);
+        if (this.isSpecial())
             throw new IllegalArgumentException("Invalid card number for a NormalCard.");
     }
 }
