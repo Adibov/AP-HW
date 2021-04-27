@@ -30,6 +30,25 @@ public class Player {
     }
 
     /**
+     * return number of player's card
+     * @return cards number
+     */
+    public int getCardsNumber() {
+        return cards.size();
+    }
+
+    /**
+     * advance a turn
+     * @param fieldCard field card
+     * @return dropped card
+     */
+    public Card advanceTurn(FieldCard fieldCard) {
+        if (cards.size() == 0)
+            throw new IllegalArgumentException("No card exits to drop");
+        return cards.get(0);
+    }
+
+    /**
      * override equals method
      * @param o the given object
      * @return boolean result

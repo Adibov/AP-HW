@@ -57,6 +57,14 @@ public class Card {
     }
 
     /**
+     * color setter
+     * @param color new color
+     */
+    public void setColor(COLOR color) {
+        this.color = color;
+    }
+
+    /**
      * number getter
      * @return card number
      */

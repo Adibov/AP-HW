@@ -2,8 +2,8 @@ import java.util.*;
 
 public class Game {
     final private Scanner inputScanner = new Scanner(System.in);
-    private int playerCount, personCount, computerCount, currentTurn = 0;
-    private Card fieldCard;
+    private int playerCount, personCount, computerCount, currentPlayer = 0, direction = 1;
+    private FieldCard fieldCard;
     private ArrayList <Player> players;
     private HashSet<Card> cards; // available cards
 
@@ -16,6 +16,10 @@ public class Game {
         getInput();
         addAllCards();
         distributeCards();
+
+        while (!finishedGame()) {
+            advanceTurn();
+        }
     }
 
     /**
@@ -79,10 +83,11 @@ public class Game {
         for (Player player : players)
             for (int i = 0; i < 7; i++)
                 addCardToPlayer(randomCard(), player);
-        fieldCard = randomCard();
-        while (fieldCard.isSpecial())
-            fieldCard = randomCard();
-        removeCard(fieldCard);
+        Card tmpFieldCard = randomCard();
+        while (tmpFieldCard.isSpecial())
+            tmpFieldCard = randomCard();
+        fieldCard = new FieldCard(tmpFieldCard.getNumber(), tmpFieldCard.getColor(), false);
+        removeCard(tmpFieldCard);
     }
 
     /**
@@ -118,5 +123,56 @@ public class Game {
         if (!cards.contains(card))
             throw new IllegalArgumentException("No such card presents in cards list.");
         cards.remove(card);
+    }
+
+    /**
+     * check if the game is finished
+     * @return boolean result
+     */
+    public boolean finishedGame() {
+        for (Player player : players)
+            if (player.getCardsNumber() == 0)
+                return true;
+        return false;
+    }
+
+    /**
+     * advance a turn
+     */
+    public void advanceTurn() {
+        Card card = players.get(currentPlayer).advanceTurn(fieldCard);
+        if (card == null || !fieldCard.checkCardValidation(card)) {
+            penalizePlayer(players.get(currentPlayer), 1);
+            incrementTurn(1);
+            return;
+        }
+
+        if (card.getNumber() != 7)
+            fieldCard.setContinuous(false);
+
+    }
+
+    /**
+     * penalize the given player with the given number of cards
+     * @param player the given player
+     * @param amount number of cards
+     */
+    public void penalizePlayer(Player player, int amount) {
+        if (amount > cards.size())
+            throw new IllegalArgumentException("Cannot penalize this amount of card.");
+        for (int i = 0; i < amount; i++) {
+            Card penaltyCard = randomCard();
+            removeCard(penaltyCard);
+            player.addCard(penaltyCard);
+        }
+    }
+
+    /**
+     * increment turn by the given amount
+     * @param amount the given amount
+     */
+    public void incrementTurn(int amount) {
+        currentPlayer += (amount * direction) % playerCount;
+        currentPlayer = (currentPlayer + playerCount) % playerCount;
     }
 }
