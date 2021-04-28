@@ -27,8 +27,7 @@ public class Game {
             clearScreen();
             showSituation();
             incrementTurn(1);
-            System.out.println("Press Enter to continue.");
-            inputScanner.nextLine();
+            getCh();
         }
         showRankList();
     }
@@ -37,18 +36,18 @@ public class Game {
      * get game details from the user
      */
     public void getInput() {
-        System.out.println("Enter number of player:");
+        System.out.println("Enter the number of player:");
         playerCount = inputScanner.nextInt(); inputScanner.nextLine(); // drop
         if (playerCount < 3 || playerCount > 5) {
-            System.out.println("Invalid input.");
+            System.out.println("Invalid input.\n");
             getInput();
             return;
         }
 
-        System.out.println("Enter number of Computer player:");
+        System.out.println("Enter the number of Computer player:");
         computerCount = inputScanner.nextInt(); inputScanner.nextLine(); // drop
         if (computerCount < 0 || computerCount >= playerCount) {
-            System.out.println("Invalid input.");
+            System.out.println("Invalid input.\n");
             getInput();
             return;
         }
@@ -64,6 +63,7 @@ public class Game {
         }
         for (int i = 0; i < computerCount; i++)
             players.add(new Computer(Integer.toString(i + 1)));
+        Collections.shuffle(players);
     }
 
     /**
@@ -159,18 +159,23 @@ public class Game {
      * advance a turn
      */
     public void advanceTurn() {
-        System.out.println(players.get(currentPlayer).getName() + "'s turn:");
-        Card droppedCard = players.get(currentPlayer).advanceTurn(fieldCard);
+        Player player = players.get(currentPlayer);
+        System.out.println(ConsoleColors.YELLOW + player.getName() + ConsoleColors.RESET + "'s turn:");
+        Card droppedCard = player.advanceTurn(fieldCard);
         if (droppedCard == null || !fieldCard.checkCardValidation(droppedCard)) {
             if (fieldCard.getNumber() == 7 && fieldCard.isContinuous()) {
-                penalizePlayer(players.get(currentPlayer), toPenalize);
+                System.out.println(ConsoleColors.YELLOW_BRIGHT + player.getName() + ConsoleColors.WHITE_BRIGHT + " has been penalized by " + toPenalize + " card(s)." + ConsoleColors.RESET);
+                getCh();
+                penalizePlayer(player, toPenalize);
                 toPenalize = 0;
                 fieldCard.setContinuous(false);
                 return;
             }
 
             Card newCard = randomCard();
-            addCardToPlayer(newCard, players.get(currentPlayer));
+            addCardToPlayer(newCard, player);
+            System.out.println(ConsoleColors.YELLOW_BRIGHT + player.getName() + ConsoleColors.WHITE_BRIGHT + " has been penalized by one card, because of not having a droppable card." + ConsoleColors.RESET);
+            getCh();
             if (fieldCard.checkCardValidation(newCard))
                 newCard.applyCard(this);
             return;
@@ -259,7 +264,7 @@ public class Game {
         int num = 1, forIndex = 1;
         for (Player player : players) {
             if (forIndex != index) {
-                System.out.println("#" + num + ": " + player.name + " with " + player.getCardsNumber() + " card(s) in hand.");
+                System.out.println(ConsoleColors.BLUE + "#" + num + ": " + ConsoleColors.YELLOW + player.name + ConsoleColors.WHITE + " with " + ConsoleColors.GREEN + player.getCardsNumber() + ConsoleColors.WHITE + " card(s) in hand." + ConsoleColors.RESET);
                 num++;
             }
             forIndex++;
@@ -270,9 +275,9 @@ public class Game {
      * show current situation of the game after playing one card
      */
     public void showSituation() {
-        System.out.println(ConsoleColors.YELLOW_BRIGHT + players.get(currentPlayer).getName() + ConsoleColors.WHITE_BRIGHT + "'s turn finished and after that, Field card is:" + ConsoleColors.RESET);
+        System.out.println(ConsoleColors.YELLOW_BRIGHT + players.get(currentPlayer).getName() + ConsoleColors.WHITE_BRIGHT + "'s turn has finished and the Field card is:" + ConsoleColors.RESET);
         fieldCard.showCard(0);
-        System.out.println(ConsoleColors.WHITE_BRIGHT + "\nAnd people's hands is like this:" + ConsoleColors.RESET);
+        System.out.println(ConsoleColors.WHITE_BRIGHT + "\nAnd number of belonging cards for each player is shown below:" + ConsoleColors.RESET);
         for (Player player : players)
             player.showCardsAnonymously();
         System.out.print(ConsoleColors.WHITE_BRIGHT + "Direction: " + ConsoleColors.YELLOW_BOLD);
@@ -280,17 +285,18 @@ public class Game {
             System.out.println("Clockwise" + ConsoleColors.RESET);
         else
             System.out.println("Counter Clockwise" + ConsoleColors.RESET);
-        System.out.print(ConsoleColors.WHITE_BRIGHT + "Did in the last turn 7 show up: " + ConsoleColors.RED);
+        System.out.print(ConsoleColors.WHITE_BRIGHT + "In the last turn, Did 7 show up: ");
         if (fieldCard.isContinuous())
-            System.out.println("Yes" + ConsoleColors.RESET);
+            System.out.println(ConsoleColors.GREEN + "Yes" + ConsoleColors.RESET);
         else
-            System.out.println("No" + ConsoleColors.RESET);
+            System.out.println(ConsoleColors.RED + "No" + ConsoleColors.RESET);
     }
 
     /**
      * show player ranks with respect to their points
      */
     public void showRankList() {
+        clearScreen();
         System.out.println("Rank list:");
         HashSet<Player> rank = new HashSet<Player>(players);
         int num = 1;
@@ -300,7 +306,7 @@ public class Game {
                 if (player.getPoints() < firstPlayer.getPoints())
                     firstPlayer = player;
             rank.remove(firstPlayer);
-            System.out.println("#" + num + ": " + firstPlayer.getName());
+            System.out.println(ConsoleColors.BLUE + "#" + num + ") " + ConsoleColors.YELLOW + firstPlayer.getName() + " " + ConsoleColors.RESET + firstPlayer.getPoints());
             num++;
         }
     }
@@ -332,9 +338,16 @@ public class Game {
     /**
      * clear terminal screen
      */
-    private static void clearScreen() {
-        for (int i = 0; i < 30; i++)
+    public void clearScreen() {
+        for (int i = 0; i < 50; i++)
             System.out.println();
     }
 
+    /**
+     * simple implementation of getch method in c
+     */
+    public void getCh() {
+        System.out.println("Press Enter to continue.");
+        inputScanner.nextLine();
+    }
 }

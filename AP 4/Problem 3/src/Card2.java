@@ -17,16 +17,18 @@ public class Card2 extends SpecialCard {
     @Override
     public void applyCard(Game game) {
         int index;
-        super.applyCard(game);
         Player currentPlayer = game.getPlayers().get(game.getCurrentPlayer());
-        if (currentPlayer.getCardsNumber() == 0) {
+        if (currentPlayer.getCardsNumber() == 1) {
+            super.applyCard(game);
             return; // already won
         }
         if (currentPlayer instanceof Computer) {
             Random randomGen = new Random();
             index = randomGen.nextInt(game.getPlayerCount() - 1);
+            index++; // 1-base
         }
         else {
+            game.clearScreen();
             game.showPlayers(game.getCurrentPlayer() + 1);
             System.out.println("Enter index of the player to penalize:");
             index = inputScanner.nextInt(); inputScanner.nextLine(); // drop
@@ -36,10 +38,14 @@ public class Card2 extends SpecialCard {
                 return;
             }
         }
-        if (index >= game.getCurrentPlayer())
+        if (index > game.getCurrentPlayer()) {
             index++;
+        }
+        super.applyCard(game);
         Card penaltyCard = currentPlayer.randomCard();
         currentPlayer.removeCard(penaltyCard);
         game.getPlayers().get(index - 1).addCard(penaltyCard);
+        System.out.println(ConsoleColors.YELLOW + currentPlayer.getName() + ConsoleColors.RESET + " has penalized " + ConsoleColors.YELLOW + game.getPlayers().get(index - 1).getName() + ConsoleColors.RESET + " by 1 card.");
+        game.getCh();
     }
 }

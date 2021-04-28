@@ -16,7 +16,7 @@ public class Person extends Player {
      */
     public Person(int num) {
         super();
-        System.out.println("Enter Player #" + num + " name:");
+        System.out.println("Enter Player #" + num + "'s name:");
         name = inputScanner.nextLine();
     }
 

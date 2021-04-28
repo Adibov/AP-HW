@@ -14,8 +14,10 @@ public class Card8 extends SpecialCard {
     @Override
     public void applyCard(Game game) {
         super.applyCard(game);
-        game.setDirection(-game.getDirection());
-        game.incrementTurn(1);
-        game.setDirection(-game.getDirection());
+        game.clearScreen();
+        game.showSituation();
+        game.getCh();
+        game.clearScreen();
+        game.advanceTurn();
     }
 }
