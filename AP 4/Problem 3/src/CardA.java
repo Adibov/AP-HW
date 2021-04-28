@@ -13,7 +13,7 @@ public class CardA extends SpecialCard {
      */
     @Override
     public void applyCard(Game game) {
-        game.incrementTurn(1);
         super.applyCard(game);
+        game.incrementTurn(1);
     }
 }

@@ -41,8 +41,10 @@ public class Card {
      * @param game the given game
      */
     public void applyCard(Game game) {
+        Player player = game.getPlayers().get(game.getCurrentPlayer());
         game.addCard(game.getFieldCard());
         game.setFieldCard(new FieldCard(number, color, number == 7));
+        player.removeCard(this);
     }
 
     /**
@@ -89,6 +91,75 @@ public class Card {
      */
     public COLOR getColor() {
         return color;
+    }
+
+    /**
+     * get card character
+     * @return card character
+     */
+    public String getCharacter() {
+        if (number <= 10)
+            return Integer.toString(number);
+        return switch (number) {
+            case 11 -> "A";
+            case 12 -> "B";
+            case 13 -> "C";
+            default -> "D";
+        };
+    }
+
+    /**
+     * show card with color
+     * @param indent the indent of the card to be printed
+     */
+    public void showCard(int indent) {
+        final String cardColor;
+        if (color == COLOR.BLACK)
+            cardColor = ConsoleColors.BLACK_BOLD_BRIGHT;
+        else if (color == COLOR.BLUE)
+            cardColor = ConsoleColors.BLUE_BOLD_BRIGHT;
+        else if (color == COLOR.GREEN)
+            cardColor = ConsoleColors.GREEN_BOLD_BRIGHT;
+        else
+            cardColor = ConsoleColors.RED_BOLD_BRIGHT;
+
+        for (int i = 0; i < 10; i++)
+            System.out.print(cardColor + "―");
+        if (number == 10)
+            System.out.print("―");
+        System.out.println();
+        for (int i = 0; i < indent; i++)
+            System.out.print(" ");
+        System.out.print("┃ " + getCharacter());
+        for (int i = 0; i < 6; i++)
+            System.out.print(" ");
+        System.out.println("┃");
+
+        for (int row = 0; row < 2; row++) {
+            for (int i = 0; i < indent; i++)
+                System.out.print(" ");
+            System.out.print("┃");
+            for (int j = 0; j < 8; j++)
+                System.out.print(" ");
+            if (number == 10)
+                System.out.print(" ");
+            System.out.println("┃");
+        }
+
+        for (int i = 0; i < indent; i++)
+            System.out.print(" ");
+        System.out.print("┃");
+        for (int i = 0; i < 6; i++)
+                System.out.print(" ");
+        System.out.print(getCharacter());
+        System.out.println(" ┃");
+        for (int i = 0; i < indent; i++)
+            System.out.print(" ");
+        for (int i = 0; i < 10; i++)
+            System.out.print(cardColor + "―" + ConsoleColors.RESET);
+        if (number == 10)
+            System.out.print(cardColor + "―" + ConsoleColors.RESET);
+        System.out.println();
     }
 
     /**

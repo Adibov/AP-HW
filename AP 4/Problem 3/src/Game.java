@@ -1,10 +1,11 @@
+import java.io.IOException;
 import java.util.*;
 
 public class Game {
     final private Scanner inputScanner = new Scanner(System.in);
     private int playerCount, personCount, computerCount, currentPlayer, direction, toPenalize;
     private FieldCard fieldCard;
-    private ArrayList <Player> players;
+    private ArrayList<Player> players;
     private HashSet<Card> cards; // available cards
 
     /**
@@ -21,9 +22,15 @@ public class Game {
         distributeCards();
 
         while (!finishedGame()) {
+            clearScreen();
             advanceTurn();
+            clearScreen();
+            showSituation();
             incrementTurn(1);
+            System.out.println("Press Enter to continue.");
+            inputScanner.nextLine();
         }
+        showRankList();
     }
 
     /**
@@ -47,7 +54,7 @@ public class Game {
         }
         personCount = playerCount - computerCount;
         for (int i = 0; i < personCount; i++) {
-            Player newPlayer = new Person();
+            Player newPlayer = new Person(i + 1);
             if (players.contains(newPlayer)) {
                 System.out.println("This user already exists.");
                 i--;
@@ -120,16 +127,6 @@ public class Game {
     }
 
     /**
-     * remove the given card from the given player
-     * @param card the given card
-     * @param player the given player
-     */
-    public void removeCardFromPlayer(Card card, Player player) {
-        player.removeCard(card);
-        cards.add(card);
-    }
-
-    /**
      * add the given card to the cards list
      * @param card the given card
      */
@@ -162,6 +159,7 @@ public class Game {
      * advance a turn
      */
     public void advanceTurn() {
+        System.out.println(players.get(currentPlayer).getName() + "'s turn:");
         Card droppedCard = players.get(currentPlayer).advanceTurn(fieldCard);
         if (droppedCard == null || !fieldCard.checkCardValidation(droppedCard)) {
             if (fieldCard.getNumber() == 7 && fieldCard.isContinuous()) {
@@ -172,6 +170,7 @@ public class Game {
             }
 
             Card newCard = randomCard();
+            addCardToPlayer(newCard, players.get(currentPlayer));
             if (fieldCard.checkCardValidation(newCard))
                 newCard.applyCard(this);
             return;
@@ -257,10 +256,51 @@ public class Game {
      */
     public void showPlayers(int index) {
         System.out.println("Players:");
-        int num = 1;
+        int num = 1, forIndex = 1;
         for (Player player : players) {
-            if (num != index)
-                System.out.println("#" + num + ": " + player);
+            if (forIndex != index) {
+                System.out.println("#" + num + ": " + player.name + " with " + player.getCardsNumber() + " card(s) in hand.");
+                num++;
+            }
+            forIndex++;
+        }
+    }
+
+    /**
+     * show current situation of the game after playing one card
+     */
+    public void showSituation() {
+        System.out.println(ConsoleColors.YELLOW_BRIGHT + players.get(currentPlayer).getName() + ConsoleColors.WHITE_BRIGHT + "'s turn finished and after that, Field card is:" + ConsoleColors.RESET);
+        fieldCard.showCard(0);
+        System.out.println(ConsoleColors.WHITE_BRIGHT + "\nAnd people's hands is like this:" + ConsoleColors.RESET);
+        for (Player player : players)
+            player.showCardsAnonymously();
+        System.out.print(ConsoleColors.WHITE_BRIGHT + "Direction: " + ConsoleColors.YELLOW_BOLD);
+        if (direction == 1)
+            System.out.println("Clockwise" + ConsoleColors.RESET);
+        else
+            System.out.println("Counter Clockwise" + ConsoleColors.RESET);
+        System.out.print(ConsoleColors.WHITE_BRIGHT + "Did in the last turn 7 show up: " + ConsoleColors.RED);
+        if (fieldCard.isContinuous())
+            System.out.println("Yes" + ConsoleColors.RESET);
+        else
+            System.out.println("No" + ConsoleColors.RESET);
+    }
+
+    /**
+     * show player ranks with respect to their points
+     */
+    public void showRankList() {
+        System.out.println("Rank list:");
+        HashSet<Player> rank = new HashSet<Player>(players);
+        int num = 1;
+        while (rank.size() != 0) {
+            Player firstPlayer = rank.iterator().next();
+            for (Player player : rank)
+                if (player.getPoints() < firstPlayer.getPoints())
+                    firstPlayer = player;
+            rank.remove(firstPlayer);
+            System.out.println("#" + num + ": " + firstPlayer.getName());
             num++;
         }
     }
@@ -288,4 +328,13 @@ public class Game {
     public void setToPenalize(int toPenalize) {
         this.toPenalize = toPenalize;
     }
+
+    /**
+     * clear terminal screen
+     */
+    private static void clearScreen() {
+        for (int i = 0; i < 30; i++)
+            System.out.println();
+    }
+
 }

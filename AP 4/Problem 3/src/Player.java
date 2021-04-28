@@ -80,6 +80,45 @@ public class Player {
     }
 
     /**
+     * get player's card points
+     * @return card points
+     */
+    public int getPoints() {
+        int result = 0;
+        for (Card card : cards)
+            result += card.getPoint();
+        return result;
+    }
+
+    /**
+     * show cards
+     */
+    public void showCards() {
+        System.out.println("Cards:");
+        int num = 1;
+        for (Card card : cards) {
+            System.out.print("#" + num + ") ");
+            card.showCard(Integer.toString(num).length() + 3);
+            num++;
+        }
+    }
+
+    /**
+     * show card with hidden details
+     */
+    public void showCardsAnonymously() {
+        System.out.println(ConsoleColors.YELLOW_BOLD + name + ": " + ConsoleColors.GREEN_BOLD + cards.size() + ConsoleColors.WHITE_BRIGHT + " Card(s) in hand" + ConsoleColors.RESET);
+    }
+
+    /**
+     * name getter
+     * @return name
+     */
+    public String getName() {
+        return name;
+    }
+
+    /**
      * override equals method
      * @param o the given object
      * @return boolean result
@@ -99,5 +138,17 @@ public class Player {
     @Override
     public int hashCode() {
         return Objects.hash(name);
+    }
+
+    /**
+     * override toString method to print colorfully
+     * @return string result
+     */
+    @Override
+    public String toString() {
+        return "Person{" +
+                "name='" + name + '\'' +
+                ", cards=" + cards +
+                "} " + super.toString();
     }
 }

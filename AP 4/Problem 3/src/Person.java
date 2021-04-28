@@ -14,9 +14,9 @@ public class Person extends Player {
     /**
      * simple constructor to get name from stdin
      */
-    public Person() {
+    public Person(int num) {
         super();
-        System.out.println("Enter Player name:");
+        System.out.println("Enter Player #" + num + " name:");
         name = inputScanner.nextLine();
     }
 
@@ -38,8 +38,8 @@ public class Person extends Player {
      * @return dropped card
      */
     public Card chooseCard(FieldCard fieldCard) {
-        System.out.println(fieldCard.toString());
-        System.out.println(this);
+        fieldCard.showCard(0);
+        showCards();
         System.out.println("Choose a card to drop:");
         int cardIndex = inputScanner.nextInt(); inputScanner.nextLine(); // drop
         if (cardIndex < 1 || cardIndex > cards.size()) {
@@ -79,17 +79,5 @@ public class Person extends Player {
             }
         }
         return droppedCard;
-    }
-
-    /**
-     * override toString method to print colorfully
-     * @return string result
-     */
-    @Override
-    public String toString() {
-        return "Person{" +
-                "name='" + name + '\'' +
-                ", cards=" + cards +
-                "} " + super.toString();
     }
 }

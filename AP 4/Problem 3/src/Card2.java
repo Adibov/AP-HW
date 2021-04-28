@@ -1,3 +1,5 @@
+import java.util.Random;
+
 public class Card2 extends SpecialCard {
     /**
      * simple constructor to make a new valid object
@@ -14,22 +16,28 @@ public class Card2 extends SpecialCard {
      */
     @Override
     public void applyCard(Game game) {
+        int index;
         super.applyCard(game);
         Player currentPlayer = game.getPlayers().get(game.getCurrentPlayer());
-        if (currentPlayer.getCardsNumber() == 0)
+        if (currentPlayer.getCardsNumber() == 0) {
             return; // already won
-
-        game.showPlayers(game.getCurrentPlayer() + 1);
-        System.out.println("Enter index of the player to penalize:");
-        int index = inputScanner.nextInt(); inputScanner.nextLine(); // drop
-        if (index < 1 || index >= game.getPlayerCount()) {
-            System.out.println("Invalid input.");
-            applyCard(game);
-            return;
         }
-        if (index >= game.getCurrentPlayer()) {
+        if (currentPlayer instanceof Computer) {
+            Random randomGen = new Random();
+            index = randomGen.nextInt(game.getPlayerCount() - 1);
+        }
+        else {
+            game.showPlayers(game.getCurrentPlayer() + 1);
+            System.out.println("Enter index of the player to penalize:");
+            index = inputScanner.nextInt(); inputScanner.nextLine(); // drop
+            if (index < 1 || index >= game.getPlayerCount()) {
+                System.out.println("Invalid input.");
+                applyCard(game);
+                return;
+            }
+        }
+        if (index >= game.getCurrentPlayer())
             index++;
-        }
         Card penaltyCard = currentPlayer.randomCard();
         currentPlayer.removeCard(penaltyCard);
         game.getPlayers().get(index - 1).addCard(penaltyCard);
