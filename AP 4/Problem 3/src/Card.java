@@ -41,11 +41,8 @@ public class Card {
      * @param game the given game
      */
     public void applyCard(Game game) {
-        Player player = game.getPlayers().get(game.getCurrentPlayer());
         game.addCard(game.getFieldCard());
         game.setFieldCard(new FieldCard(number, color, number == 7));
-        game.addCard(this);
-        game.incrementTurn(1);
     }
 
     /**

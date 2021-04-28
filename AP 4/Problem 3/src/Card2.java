@@ -14,20 +14,24 @@ public class Card2 extends SpecialCard {
      */
     @Override
     public void applyCard(Game game) {
+        super.applyCard(game);
         Player currentPlayer = game.getPlayers().get(game.getCurrentPlayer());
+        if (currentPlayer.getCardsNumber() == 0)
+            return; // already won
+
         game.showPlayers(game.getCurrentPlayer() + 1);
         System.out.println("Enter index of the player to penalize:");
-        int index = inputScanner.nextInt(); inputScanner.nextLine();
+        int index = inputScanner.nextInt(); inputScanner.nextLine(); // drop
         if (index < 1 || index >= game.getPlayerCount()) {
             System.out.println("Invalid input.");
             applyCard(game);
             return;
         }
-        if (index >= game.getCurrentPlayer())
+        if (index >= game.getCurrentPlayer()) {
             index++;
+        }
         Card penaltyCard = currentPlayer.randomCard();
         currentPlayer.removeCard(penaltyCard);
         game.getPlayers().get(index - 1).addCard(penaltyCard);
-        super.applyCard(game);
     }
 }

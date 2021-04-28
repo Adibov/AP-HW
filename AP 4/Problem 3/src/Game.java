@@ -2,7 +2,7 @@ import java.util.*;
 
 public class Game {
     final private Scanner inputScanner = new Scanner(System.in);
-    private int playerCount, personCount, computerCount, currentPlayer = 0, direction = 1;
+    private int playerCount, personCount, computerCount, currentPlayer, direction, toPenalize;
     private FieldCard fieldCard;
     private ArrayList <Player> players;
     private HashSet<Card> cards; // available cards
@@ -13,12 +13,16 @@ public class Game {
     public void startGame() {
         players = new ArrayList<Player>();
         cards = new HashSet<Card>();
+        currentPlayer = 0;
+        direction = 1;
+        toPenalize = 0;
         getInput();
         addAllCards();
         distributeCards();
 
         while (!finishedGame()) {
             advanceTurn();
+            incrementTurn(1);
         }
     }
 
@@ -160,8 +164,16 @@ public class Game {
     public void advanceTurn() {
         Card droppedCard = players.get(currentPlayer).advanceTurn(fieldCard);
         if (droppedCard == null || !fieldCard.checkCardValidation(droppedCard)) {
-            penalizePlayer(players.get(currentPlayer), 1);
-            incrementTurn(direction);
+            if (fieldCard.getNumber() == 7 && fieldCard.isContinuous()) {
+                penalizePlayer(players.get(currentPlayer), toPenalize);
+                toPenalize = 0;
+                fieldCard.setContinuous(false);
+                return;
+            }
+
+            Card newCard = randomCard();
+            if (fieldCard.checkCardValidation(newCard))
+                newCard.applyCard(this);
             return;
         }
         droppedCard.applyCard(this);
@@ -259,5 +271,21 @@ public class Game {
      */
     public int getPlayerCount() {
         return playerCount;
+    }
+
+    /**
+     * toPenalize getter
+     * @return toPenalize
+     */
+    public int getToPenalize() {
+        return toPenalize;
+    }
+
+    /**
+     * toPenalize setter
+     * @param toPenalize new value
+     */
+    public void setToPenalize(int toPenalize) {
+        this.toPenalize = toPenalize;
     }
 }

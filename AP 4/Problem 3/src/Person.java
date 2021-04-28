@@ -67,17 +67,15 @@ public class Person extends Player {
         if (droppedCard.getNumber() == 12) {
             System.out.println("Choose a color for next turn: (black, blue, red, green)");
             String nextColor = inputScanner.next(); inputScanner.nextLine(); // drop
-            if (nextColor.equals("black"))
-                droppedCard.setColor(COLOR.BLACK);
-            else if (nextColor.equals("blue"))
-                droppedCard.setColor(COLOR.BLUE);
-            else if (nextColor.equals("red"))
-                droppedCard.setColor(COLOR.RED);
-            else if (nextColor.equals("green"))
-                droppedCard.setColor(COLOR.GREEN);
-            else {
-                System.out.println("Invalid input.");
-                return advanceTurn(fieldCard);
+            switch (nextColor) {
+                case "black" -> droppedCard.setColor(COLOR.BLACK);
+                case "blue" -> droppedCard.setColor(COLOR.BLUE);
+                case "red" -> droppedCard.setColor(COLOR.RED);
+                case "green" -> droppedCard.setColor(COLOR.GREEN);
+                default -> {
+                    System.out.println("Invalid input.");
+                    return advanceTurn(fieldCard);
+                }
             }
         }
         return droppedCard;
