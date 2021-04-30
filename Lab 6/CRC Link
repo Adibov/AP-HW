@@ -1,0 +1,124 @@
+https://echeung.me/crcmaker/?share=W3sibmFtZSI6IkhlYWx0aGNhcmUgU3lzdGVtIiwic3VwZXJjbGFzc2VzIjoiIiwic3ViY2xhc3NlcyI6IiIsInR5cGUiOjEsInJlc3BvbnNpYmlsaXRpZXMiOlsiU2F2ZSBEb2N0b3JzL0RydWdzdG9yZURvY3RvcnMgbGlzdC4iLCJTYXZlIFBhdGllbnRzIGFuZCB0aGVpciBtZWRpY2FsIHJlY29yZC4iLCJSZXBvcnQgbWVkaWNhbCByZWNvcmRzIHRvIHVuaXZlcnNpdGllcy4iLCJJc3N1ZSBNZWRpY2FsIHJlY29yZCBsaWNlbnNlcy4iXSwiY29sbGFib3JhdG9ycyI6WyJQYXRpZW50IiwiRG9jdG9yIiwiQ29sbGVjdGlvbiIsIk1lZGljYWxSZWNvcmQiLCJVbml2ZXJzaXR5IiwiTWVkaWNhbFJlY29yZExpY2Vuc2UiXX0seyJuYW1lIjoiUGF0aWVudCIsInN1cGVyY2xhc3NlcyI6IiIsInN1YmNsYXNzZXMiOiIiLCJ0eXBlIjoxLCJyZXNwb25zaWJpbGl0aWVzIjpbIlNob3cgcHJlc2NyaWJlZCBkcnVncy4iLCJTYXZlIHBhdGllbnQgaW5mb3JtYXRpb24uIiwiU2hvdyB0cnVzdHdvcnRoeSBkb2N0b3JzLiIsIiJdLCJjb2xsYWJvcmF0b3JzIjpbIk1lZGljYWxCb29rbGV0IiwiTWVkaWNhbFJlY29yZCIsIk1lZGljYWxSZWNvcmRMaWNlbnNlIiwiRHJ1ZyIsIlNpY2tuZXNzIiwiIl19LHsibmFtZSI6IkRvY3RvciIsInN1cGVyY2xhc3NlcyI6IiIsInN1YmNsYXNzZXMiOiIiLCJ0eXBlIjoxLCJyZXNwb25zaWJpbGl0aWVzIjpbIkludHJvZHVjZSBuZXcgRG9jdG9yLiIsIlByZXNjcmliZSBhIG5ldyBkcnVnLiIsIiJdLCJjb2xsYWJvcmF0b3JzIjpbIkRydWciLCJNZWRpY2FsQm9va2xldCJdfSx7Im5hbWUiOiJTaWNrbmVzcyIsInN1cGVyY2xhc3NlcyI6IiIsInN1YmNsYXNzZXMiOiIiLCJ0eXBlIjoxLCJyZXNwb25zaWJpbGl0aWVzIjpbIlNhdmUgc2lja25lc3MgaW50ZW5zaXR5LiIsIlNhdmUgZWZmZWN0aXZlIGRydWdzLiIsIlNhdmUgc2lja25lc3MgdHlwZS4iXSwiY29sbGFib3JhdG9ycyI6WyJEcnVnIl19LHsibmFtZSI6IkRydWciLCJzdXBlcmNsYXNzZXMiOiIiLCJzdWJjbGFzc2VzIjoiIiwidHlwZSI6MSwicmVzcG9uc2liaWxpdGllcyI6WyJTYXZlIHJlbGF0ZWQgc2lja25lc3Nlcy4iXSwiY29sbGFib3JhdG9ycyI6WyJTaWNrbmVzcyJdfSx7Im5hbWUiOiJNZWRpY2FsUmVjb3JkIiwic3VwZXJjbGFzc2VzIjoiIiwic3ViY2xhc3NlcyI6IiIsInR5cGUiOjEsInJlc3BvbnNpYmlsaXRpZXMiOlsiU2F2ZSBwYXRpZW50IG1lZGljYWwgcmVjb3JkcyBpbmNsdWRpbmcgdGhlaXIgc2lja25lc3MgdHlwZSwgY29uZGl0aW9uLCBwcmVzY3JpYmVkIGRydWdzIGFuZCAuLi4iXSwiY29sbGFib3JhdG9ycyI6WyJEcnVnIiwiUGF0aWVudCJdfSx7Im5hbWUiOiJNZWRpY2FsUmVjb3JkTGljZW5zZSIsInN1cGVyY2xhc3NlcyI6IiIsInN1YmNsYXNzZXMiOiIiLCJ0eXBlIjoxLCJyZXNwb25zaWJpbGl0aWVzIjpbIlNhdmUgbWVkaWNhbCByZWNvcmRzIGluZm9ybWF0aW9uLiJdLCJjb2xsYWJvcmF0b3JzIjpbIlBhdGllbnQiLCJEb2N0b3IiXX0seyJuYW1lIjoiTWVkaWNhbCBCb29rbGV0Iiwic3VwZXJjbGFzc2VzIjoiIiwic3ViY2xhc3NlcyI6IiIsInR5cGUiOjEsInJlc3BvbnNpYmlsaXRpZXMiOlsiU2F2ZSBwYXRpZW50IGluZm9ybWF0aW9uIGFuZCBtZWRpY2FsIHJlY29yZHMuIl0sImNvbGxhYm9yYXRvcnMiOlsiUGF0aWVudCIsIk1lZGljYWxSZWNvcmQiXX1d
+
+[
+  {
+    "name": "Healthcare System",
+    "superclasses": "",
+    "subclasses": "",
+    "type": 1,
+    "responsibilities": [
+      "Save Doctors/DrugstoreDoctors list.",
+      "Save Patients and their medical record.",
+      "Report medical records to universities.",
+      "Issue Medical record licenses."
+    ],
+    "collaborators": [
+      "Patient",
+      "Doctor",
+      "Collection",
+      "MedicalRecord",
+      "University",
+      "MedicalRecordLicense"
+    ]
+  },
+  {
+    "name": "Patient",
+    "superclasses": "",
+    "subclasses": "",
+    "type": 1,
+    "responsibilities": [
+      "Show prescribed drugs.",
+      "Save patient information.",
+      "Show trustworthy doctors.",
+      ""
+    ],
+    "collaborators": [
+      "MedicalBooklet",
+      "MedicalRecord",
+      "MedicalRecordLicense",
+      "Drug",
+      "Sickness",
+      ""
+    ]
+  },
+  {
+    "name": "Doctor",
+    "superclasses": "",
+    "subclasses": "",
+    "type": 1,
+    "responsibilities": [
+      "Introduce new Doctor.",
+      "Prescribe a new drug.",
+      ""
+    ],
+    "collaborators": [
+      "Drug",
+      "MedicalBooklet"
+    ]
+  },
+  {
+    "name": "Sickness",
+    "superclasses": "",
+    "subclasses": "",
+    "type": 1,
+    "responsibilities": [
+      "Save sickness intensity.",
+      "Save effective drugs.",
+      "Save sickness type."
+    ],
+    "collaborators": [
+      "Drug"
+    ]
+  },
+  {
+    "name": "Drug",
+    "superclasses": "",
+    "subclasses": "",
+    "type": 1,
+    "responsibilities": [
+      "Save related sicknesses."
+    ],
+    "collaborators": [
+      "Sickness"
+    ]
+  },
+  {
+    "name": "MedicalRecord",
+    "superclasses": "",
+    "subclasses": "",
+    "type": 1,
+    "responsibilities": [
+      "Save patient medical records including their sickness type, condition, prescribed drugs and ..."
+    ],
+    "collaborators": [
+      "Drug",
+      "Patient"
+    ]
+  },
+  {
+    "name": "MedicalRecordLicense",
+    "superclasses": "",
+    "subclasses": "",
+    "type": 1,
+    "responsibilities": [
+      "Save medical records information."
+    ],
+    "collaborators": [
+      "Patient",
+      "Doctor"
+    ]
+  },
+  {
+    "name": "Medical Booklet",
+    "superclasses": "",
+    "subclasses": "",
+    "type": 1,
+    "responsibilities": [
+      "Save patient information and medical records."
+    ],
+    "collaborators": [
+      "Patient",
+      "MedicalRecord"
+    ]
+  }
+]
