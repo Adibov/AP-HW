@@ -16,4 +16,13 @@ public class News {
         this.title = title;
         this.newsBody = newsBody;
     }
+
+    /**
+     * override toString method
+     * @return String result
+     */
+    @Override
+    public String toString() {
+        return title + "\n" + newsBody + "\n";
+    }
 }
