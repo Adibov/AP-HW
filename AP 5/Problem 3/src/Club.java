@@ -16,6 +16,8 @@ public class Club extends Subject {
      */
     public void addPlayer(Player player) {
         playersList.add(player);
+        notifyObservers(new News("New Player joined to the club",
+                "After some negotiations, the club accepted " + player + ", joining request."));
     }
 
     /**
@@ -24,5 +26,7 @@ public class Club extends Subject {
      */
     public void addMatch(Match match) {
         upcomingMatches.add(match);
+        notifyObservers(new News("New upcoming match",
+                this + " has new upcoming match against " + match.getOpponent(this) + "."));
     }
 }

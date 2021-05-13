@@ -5,7 +5,7 @@
  * @version 1.0
  */
 public class News {
-    String title, newsBody;
+    protected String title, newsBody;
 
     /**
      * construct a new valid object

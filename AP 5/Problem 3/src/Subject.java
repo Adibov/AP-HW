@@ -29,7 +29,8 @@ public class Subject {
     }
 
     /**
-     * notify observers
+     * notify observers (publish the given news)
+     * @param news the given news
      */
     public void notifyObservers(News news) {
         for (Observer observer : observers)
