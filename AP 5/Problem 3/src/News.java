@@ -23,6 +23,6 @@ public class News {
      */
     @Override
     public String toString() {
-        return title + "\n" + newsBody + "\n";
+        return title + "\n" + "------------------------------------------------------------------\n" + newsBody + "\n";
     }
 }

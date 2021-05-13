@@ -23,6 +23,6 @@ public class MatchNews extends News {
      */
     @Override
     public String toString() {
-        return "News about " + targetMatch + ":\n" + super.toString();
+        return "News about " + targetMatch + "'s match:\n" + super.toString();
     }
 }
