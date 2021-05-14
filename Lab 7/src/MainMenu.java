@@ -37,6 +37,7 @@ public class MainMenu {
             deleteNote();
         else
             exit();
+        mainMenu();
     }
 
     /**
@@ -68,6 +69,7 @@ public class MainMenu {
         Note note = chooseNote("Choose a note to view:");
         clearScreen();
         note.showNote();
+        getAnInputFromStdin();
     }
 
     /**
@@ -75,8 +77,8 @@ public class MainMenu {
      */
     private void deleteNote() {
         Note note = chooseNote("Choose a note to delete:");
-        clearScreen();
         notebook.deleteNote(note);
+        showMessage("Chosen note deleted successfully.");
     }
 
     private void exit() {

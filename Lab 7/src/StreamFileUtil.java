@@ -43,7 +43,9 @@ public class StreamFileUtil extends FileUtils {
 
         try (FileInputStream fileInputStream = new FileInputStream(absolutePath)) {
             ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
-            return objectInputStream.readObject();
+            Note note = (Note)objectInputStream.readObject();
+            note.init();
+            return note;
         }
         catch (IOException | ClassNotFoundException ioException) {
             ioException.printStackTrace();

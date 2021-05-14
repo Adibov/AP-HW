@@ -1,6 +1,7 @@
 import java.io.*;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.Scanner;
 
 /**
  * read/write to/in files with buffer reader class
@@ -27,8 +28,10 @@ public class BufferFileUtil extends FileUtils {
 
         try (FileWriter fileWriter = new FileWriter(absolutePath)) {
             BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
-            bufferedWriter.write(note.getFilename());
-            bufferedWriter.write(note.getBody());
+            PrintWriter printWriter = new PrintWriter(bufferedWriter);
+            printWriter.println(note.getFilename());
+            printWriter.println(note.getBody());
+            printWriter.flush();
         }
         catch (IOException ioException) {
             ioException.printStackTrace();
@@ -47,8 +50,9 @@ public class BufferFileUtil extends FileUtils {
 
         try (FileReader fileReader = new FileReader(absolutePath)) {
             BufferedReader bufferedReader = new BufferedReader(fileReader);
-            filename = bufferedReader.readLine();
-            body = bufferedReader.readLine();
+            Scanner scanner = new Scanner(bufferedReader);
+            filename = scanner.nextLine();
+            body = scanner.nextLine();
             return new Note(filename, body);
         }
         catch (IOException ioException) {

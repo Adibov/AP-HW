@@ -12,8 +12,8 @@ public class Note implements Serializable {
     final private LocalDate creationTime;
     private LocalDate lastModificationTime;
     private String filename, body;
-    final private FileUtils streamFileUtil = new StreamFileUtil();
-//    final private FileUtils streamFileUtil = new BufferFileUtil();
+//    transient private FileUtils streamFileUtil = new StreamFileUtil();
+    transient private FileUtils streamFileUtil = new BufferFileUtil();
 
     /**
      * make a new valid note
@@ -26,6 +26,14 @@ public class Note implements Serializable {
         creationTime = LocalDate.now();
         lastModificationTime = LocalDate.now();
         save();
+    }
+
+    /**
+     * set transients fields
+     */
+    public void init() {
+        streamFileUtil = new StreamFileUtil();
+//        streamFileUtil = new BufferFileUtil();
     }
 
     /**
