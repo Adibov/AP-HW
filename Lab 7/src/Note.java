@@ -10,8 +10,10 @@ import java.time.LocalDate;
  */
 public class Note implements Serializable {
     final private LocalDate creationTime;
-    private LocalDate modificationTime;
+    private LocalDate lastModificationTime;
     private String filename, body;
+    final private FileUtils streamFileUtil = new StreamFileUtil();
+//    final private FileUtils streamFileUtil = new BufferFileUtil();
 
     /**
      * make a new valid note
@@ -22,8 +24,26 @@ public class Note implements Serializable {
         this.filename = filename;
         this.body = body;
         creationTime = LocalDate.now();
-        modificationTime = LocalDate.now();
+        lastModificationTime = LocalDate.now();
+        save();
+    }
 
+    /**
+     * save note to the corresponding file
+     */
+    public void save() {
+        streamFileUtil.writeToFile(this,"Files" +
+                streamFileUtil.getFileSeparator() +
+                filename);
+    }
+
+    /**
+     * delete note from the corresponding file
+     */
+    public void delete() {
+        streamFileUtil.deleteFile("Files" +
+                streamFileUtil.getFileSeparator() +
+                filename );
     }
 
     /**
@@ -43,11 +63,20 @@ public class Note implements Serializable {
     }
 
     /**
-     * override toString method
-     * @return String result
+     * show a summary of the note (actually first line of the note)
      */
-    @Override
-    public String toString() {
-        return filename + "\n-----------------------------\n" + body;
+    public void showSummary() {
+        String[] bodyLines = body.split("\n");
+        System.out.println(bodyLines[0]);
+    }
+
+    /**
+     * show the whole note
+     */
+    public void showNote() {
+        System.out.println(filename +
+                "\nCreation date: " + creationTime +
+                "\nLast modification date: " + lastModificationTime +
+                "\n" + body);
     }
 }

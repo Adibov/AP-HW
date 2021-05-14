@@ -31,10 +31,32 @@ abstract public class FileUtils {
      * @param relativePath relative path
      */
     public void createFolder(String relativePath) {
-        Path path = Paths.get(relativePath).toAbsolutePath();
-        File newFolder = new File(path.toString());
+        String absolutePath = Paths.get(relativePath).toAbsolutePath().toString();
+        File newFolder = new File(absolutePath);
         if (!newFolder.exists() && !newFolder.mkdirs())
             throw new SecurityException("Cannot make new folder.");
+    }
+
+    /**
+     * delete file with the given path
+     * @param relativePath given path
+     */
+    public void deleteFile(String relativePath) {
+        Path path = Paths.get(relativePath).toAbsolutePath();
+        try {
+            Files.delete(path);
+        }
+        catch (IOException ioException) {
+            ioException.printStackTrace();
+        }
+    }
+
+    /**
+     * file separator getter
+     * @return file separator
+     */
+    public String getFileSeparator() {
+        return fileSeparator;
     }
 
     /**
