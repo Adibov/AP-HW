@@ -27,6 +27,22 @@ public class Note implements Serializable {
     }
 
     /**
+     * filename getter
+     * @return filename
+     */
+    public String getFilename() {
+        return filename;
+    }
+
+    /**
+     * getBody getter
+     * @return getBody
+     */
+    public String getBody() {
+        return body;
+    }
+
+    /**
      * override toString method
      * @return String result
      */

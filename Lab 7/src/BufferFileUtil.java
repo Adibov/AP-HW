@@ -1,3 +1,7 @@
+import java.io.*;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+
 /**
  * read/write to/in files with buffer reader class
  * @author Adibov
@@ -18,7 +22,17 @@ public class BufferFileUtil extends FileUtils {
      */
     @Override
     public void writeToFile(Object object, String path) {
+        String absolutePath = Paths.get(path).toAbsolutePath().toString();
+        Note note = (Note)object;
 
+        try (FileWriter fileWriter = new FileWriter(absolutePath)) {
+            BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
+            bufferedWriter.write(note.getFilename());
+            bufferedWriter.write(note.getBody());
+        }
+        catch (IOException ioException) {
+            ioException.printStackTrace();
+        }
     }
 
     /**
@@ -28,6 +42,15 @@ public class BufferFileUtil extends FileUtils {
      */
     @Override
     public Object readFromFile(String path) {
+        String absolutePath = Paths.get(path).toAbsolutePath().toString();
+
+        try (FileInputStream fileInputStream = new FileInputStream(absolutePath)) {
+            ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
+            return objectInputStream.readObject();
+        }
+        catch (IOException | ClassNotFoundException ioException) {
+            ioException.printStackTrace();
+        }
         return null;
     }
 }
