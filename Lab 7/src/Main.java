@@ -9,6 +9,7 @@ public class Main {
      * @param args program args
      */
     public static void main(String[] args) {
-
+        MainMenu main = new MainMenu();
+        main.mainMenu();
     }
 }

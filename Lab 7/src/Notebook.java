@@ -17,6 +17,25 @@ public class Notebook {
     }
 
     /**
+     * return number of notes in the list
+     * @return notes number
+     */
+    public int noteNumber() {
+        return notesList.size();
+    }
+
+    /**
+     * return note with the given index
+     * @param index the given index
+     * @return result note
+     */
+    public Note getNoteByIndex(int index) {
+        if (index < 1 || index > notesList.size())
+            return null;
+        return notesList.get(index);
+    }
+
+    /**
      * delete the given note from the list of notes
      * @param note the given note
      */
@@ -37,5 +56,14 @@ public class Notebook {
             note.showSummary();
             System.out.println();
         }
+    }
+
+    /**
+     * show notes with their name (title)
+     */
+    public void showNotesList() {
+        int index = 1;
+        for (Note note : notesList)
+            System.out.println("Note #" + index + ": " + note.getFilename());
     }
 }
