@@ -43,12 +43,15 @@ public class BufferFileUtil extends FileUtils {
     @Override
     public Object readFromFile(String path) {
         String absolutePath = Paths.get(path).toAbsolutePath().toString();
+        String filename, body;
 
-        try (FileInputStream fileInputStream = new FileInputStream(absolutePath)) {
-            ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
-            return objectInputStream.readObject();
+        try (FileReader fileReader = new FileReader(absolutePath)) {
+            BufferedReader bufferedReader = new BufferedReader(fileReader);
+            filename = bufferedReader.readLine();
+            body = bufferedReader.readLine();
+            return new Note(filename, body);
         }
-        catch (IOException | ClassNotFoundException ioException) {
+        catch (IOException ioException) {
             ioException.printStackTrace();
         }
         return null;
