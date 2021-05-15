@@ -57,8 +57,8 @@ public class MainMenu {
      * show a summary of the notes
      */
     private void showSummary() {
+        clearScreen();
         notebook.showSummaryOfNotes();
-        System.out.println();
         getAnInputFromStdin();
     }
 
@@ -97,7 +97,7 @@ public class MainMenu {
         System.out.println(message);
         notebook.showNotesList();
 
-        int option = inputScanner.nextInt();
+        int option = inputScanner.nextInt(); inputScanner.nextLine(); // drop
         if (option < 1 || option > notebook.noteNumber()) {
             showMessage("Invalid input.");
             return chooseNote(message);
@@ -119,7 +119,7 @@ public class MainMenu {
      * wait until client press a key to continue
      */
     private void getAnInputFromStdin() {
-        System.out.println("Press any key to continue...");
+        System.out.println("Press Enter to continue...");
         inputScanner.nextLine(); // drop
     }
 

@@ -84,7 +84,7 @@ public class Notebook {
     public void showSummaryOfNotes() {
         int index = 1;
         for (Note note : notesList) {
-            System.out.println("Note #" + index + "\n");
+            System.out.println("Note #" + index + ": ");
             note.showSummary();
             System.out.println();
             index++;

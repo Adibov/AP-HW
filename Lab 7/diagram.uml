@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>/Users/adibov/Desktop/Git/AP-HW/Lab 7</OriginalElement>
+  <nodes>
+    <node x="261.0" y="261.0">BufferFileUtil</node>
+    <node x="289.0" y="406.0">Notebook</node>
+    <node x="130.5" y="0.0">FileUtils</node>
+    <node x="0.0" y="261.0">StreamFileUtil</node>
+    <node x="0.0" y="406.0">Note</node>
+    <node x="566.0" y="406.0">Main</node>
+    <node x="547.0" y="0.0">MainMenu</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="BufferFileUtil" target="FileUtils" relationship="GENERALIZATION">
+      <point x="0.0" y="-50.0" />
+      <point x="381.5" y="236.0" />
+      <point x="251.0" y="236.0" />
+      <point x="0.0" y="105.5" />
+    </edge>
+    <edge source="StreamFileUtil" target="FileUtils" relationship="GENERALIZATION">
+      <point x="0.0" y="-50.0" />
+      <point x="120.5" y="236.0" />
+      <point x="251.0" y="236.0" />
+      <point x="0.0" y="105.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic" zoom="0.6522603500534068" showDependencies="false" x="141.35297627028604" y="122.0083064785494" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Constructors</Category>
+    <Category>Fields</Category>
+    <Category>Methods</Category>
+    <Category>Properties</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
