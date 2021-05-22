@@ -53,15 +53,14 @@ public class Client {
     public void inputMessage() {
         while (true) {
             String message = inputScanner.nextLine();
-            if (message.equals("over"))
-                break;
             try {
-                System.out.println("Client sent this message: " + message);
                 out.writeObject(message);
             }
             catch (IOException exception) {
                 exception.printStackTrace();
             }
+            if (message.equals("over"))
+                break;
         }
     }
 
@@ -69,15 +68,14 @@ public class Client {
      * update client output stream if any message has been sent via the server
      */
     public void update() {
+        System.out.println();
         try {
-            String message = "";
-            while (true) {
-                message = (String) in.readObject();
-                System.out.println(message);
-            }
+            String message = (String) in.readObject();
+            System.out.println(message);
         }
         catch (IOException | ClassNotFoundException exception) {
             exception.printStackTrace();
         }
+        System.out.println();
     }
 }

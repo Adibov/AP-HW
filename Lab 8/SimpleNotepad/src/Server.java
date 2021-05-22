@@ -39,6 +39,7 @@ public class Server {
         Server server = new Server();
         while (true) {
             server.setMessage(server.getInput());
+            System.out.println("Updated message in server: " + server.getMessage());
             server.printMessage();
         }
     }
@@ -49,17 +50,17 @@ public class Server {
      */
     public String getInput() {
         String receivedMessage = "", newMessage = "";
-        try {
-            while (true) {
+        while (true) {
+            try {
                 newMessage = (String) in.readObject();
                 System.out.println("Server got this message: " + newMessage);
-                if (newMessage == "")
+                if (newMessage.equals("over"))
                     break;
-                receivedMessage += newMessage;
+                receivedMessage += newMessage + "\n";
             }
-        }
-        catch (IOException | ClassNotFoundException exception) {
-            exception.printStackTrace();
+            catch (IOException | ClassNotFoundException exception) {
+                exception.printStackTrace();
+            }
         }
         return receivedMessage;
     }
