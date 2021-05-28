@@ -39,7 +39,7 @@ public class Server {
         Server server = new Server();
         while (true) {
             server.setMessage(server.getInput());
-            System.out.println("Updated message in server: " + server.getMessage());
+//            System.out.println("Updated message in server: " + server.getMessage());
             server.printMessage();
         }
     }
