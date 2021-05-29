@@ -38,37 +38,36 @@ public class Server {
     public static void main(String[] args) {
         Server server = new Server();
         while (true) {
-            server.setMessage(server.getInput());
-//            System.out.println("Updated message in server: " + server.getMessage());
-            server.printMessage();
+            server.getInput();
+            server.sendMessage();
+            server.setMessage("");
         }
     }
 
     /**
      * getInput from the client
-     * @return result message
      */
-    public String getInput() {
-        String receivedMessage = "", newMessage = "";
+    public void getInput() {
+        String newMessage = "";
         while (true) {
             try {
                 newMessage = (String) in.readObject();
                 System.out.println("Server got this message: " + newMessage);
                 if (newMessage.equals("over"))
                     break;
-                receivedMessage += newMessage + "\n";
+                message += newMessage + "\n";
+                sendMessage();
             }
             catch (IOException | ClassNotFoundException exception) {
                 exception.printStackTrace();
             }
         }
-        return receivedMessage;
     }
 
     /**
      * write current message to the output stream
      */
-    public void printMessage() {
+    public void sendMessage() {
         System.out.println("Server wants to send this message: " + message);
         try {
             out.writeObject(message);

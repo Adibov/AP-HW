@@ -51,16 +51,12 @@ public class Client {
      * input a new message from the client
      */
     public void inputMessage() {
-        while (true) {
-            String message = inputScanner.nextLine();
-            try {
-                out.writeObject(message);
-            }
-            catch (IOException exception) {
-                exception.printStackTrace();
-            }
-            if (message.equals("over"))
-                break;
+        String message = inputScanner.nextLine();
+        try {
+            out.writeObject(message);
+        }
+        catch (IOException exception) {
+            exception.printStackTrace();
         }
     }
 
