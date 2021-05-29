@@ -64,7 +64,7 @@ public class Client {
      * update client output stream if any message has been sent via the server
      */
     public void update() {
-        System.out.println();
+        System.out.println("\nReceived:");
         try {
             String message = (String) in.readObject();
             System.out.println(message);

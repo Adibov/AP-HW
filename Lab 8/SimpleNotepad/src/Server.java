@@ -23,6 +23,7 @@ public class Server {
         try {
             serverSocket = new ServerSocket(2021);
             socket = serverSocket.accept();
+            System.out.println("Connection established.");
             out = new ObjectOutputStream(socket.getOutputStream());
             in = new ObjectInputStream(socket.getInputStream());
         }
