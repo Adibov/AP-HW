@@ -41,6 +41,16 @@ public class TokenHandler {
         expression = expression.replace("÷", "/");
         expression = expression.replace("x", "*");
         expression = expression.replace(" ", "");
+        StringBuilder tmp = new StringBuilder();
+        for (int i = 0; i < expression.length(); i++) // delete decimal points
+            if (expression.charAt(i) == '.') {
+                while (i < expression.length() && !isOperator(expression.charAt(i)))
+                    i++;
+                i--;
+            }
+            else
+                tmp.append(expression.charAt(i));
+        expression = tmp.substring(0, tmp.length());
         if (!isExpression(expression))
             throw new ScriptException("Invalid expression");
 
@@ -53,8 +63,8 @@ public class TokenHandler {
             while (index < expression.length()) {
                 int lastNumber = 0;
                 while (index < expression.length() && !isOperator(expression.charAt(index))) {
-                    String tmp = "" + expression.charAt(index);
-                    lastNumber = 10 * lastNumber + Integer.parseInt(tmp);
+                    String tmpString = "" + expression.charAt(index);
+                    lastNumber = 10 * lastNumber + Integer.parseInt(tmpString);
                     index++;
                 }
                 if (lastInnerOperator == '*')

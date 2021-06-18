@@ -186,9 +186,10 @@ public class SimpleCalculatorController {
         wrongLabel.setVisible(false);
         String expression = resultBox.getText();
         try {
-            int result = TokenHandler.calculateExpression(expression);
-            result = (int) Math.cos(result);
-            resultBox.setText(Integer.toString(result));
+            double result = TokenHandler.calculateExpression(expression);
+            result *= Math.PI / 180.0;
+            result = Math.cos(result);
+            resultBox.setText(Double.toString(result));
         }
         catch (ScriptException e) {
             wrongLabel.setVisible(true);
@@ -204,9 +205,10 @@ public class SimpleCalculatorController {
         wrongLabel.setVisible(false);
         String expression = resultBox.getText();
         try {
-            int result = TokenHandler.calculateExpression(expression);
-            result = (int) Math.sin(result);
-            resultBox.setText(Integer.toString(result));
+            double result = TokenHandler.calculateExpression(expression);
+            result *= Math.PI / 180.0;
+            result = Math.sin(result);
+            resultBox.setText(Double.toString(result));
         }
         catch (ScriptException e) {
             wrongLabel.setVisible(true);
