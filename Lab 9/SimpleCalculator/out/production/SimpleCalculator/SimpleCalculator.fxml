@@ -3,225 +3,317 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.TitledPane?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<TitledPane alignment="CENTER" collapsible="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="410.0" prefWidth="351.0" text="Calculator" textAlignment="CENTER" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+<TitledPane alignment="CENTER" collapsible="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="410.0" prefWidth="351.0" text="Calculator" textAlignment="CENTER" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="SimpleCalculatorController">
   <content>
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="419.0" prefWidth="428.0" style="-fx-background-color: #C0C0C0#C0C0C0; -fx-border-color: #FFA500#FFA500;">
          <children>
-            <Button alignment="CENTER" layoutX="45.0" layoutY="109.0" mnemonicParsing="false" opacity="0.81" prefHeight="32.0" prefWidth="32.0" style="-fx-border-radius: 50%; -fx-border-style: solid; -fx-background-radius: 50%; -fx-background-color: white; -fx-border-color: #FFA500#FFA500;" text="1" textAlignment="CENTER" textFill="ORANGE">
-               <font>
-                  <Font name="Apple SD Gothic Neo Regular" size="14.0" />
-               </font>
-               <opaqueInsets>
-                  <Insets />
-               </opaqueInsets>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </Button>
-            <TextField layoutX="18.0" layoutY="38.0" prefHeight="36.0" prefWidth="313.0" style="-fx-border-color: #FFA500#FFA500;" />
-            <Button alignment="CENTER" layoutX="103.0" layoutY="109.0" mnemonicParsing="false" opacity="0.81" prefHeight="32.0" prefWidth="32.0" style="-fx-border-radius: 50%; -fx-border-style: solid; -fx-background-radius: 50%; -fx-background-color: white; -fx-border-color: #FFA500#FFA500;" text="2" textAlignment="CENTER" textFill="ORANGE">
-               <font>
-                  <Font name="Apple SD Gothic Neo Regular" size="14.0" />
-               </font>
-               <opaqueInsets>
-                  <Insets />
-               </opaqueInsets>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </Button>
-            <Button alignment="CENTER" layoutX="161.0" layoutY="109.0" mnemonicParsing="false" opacity="0.81" prefHeight="32.0" prefWidth="32.0" style="-fx-border-radius: 50%; -fx-border-style: solid; -fx-background-radius: 50%; -fx-background-color: white; -fx-border-color: #FFA500#FFA500;" text="3" textAlignment="CENTER" textFill="ORANGE">
-               <font>
-                  <Font name="Apple SD Gothic Neo Regular" size="14.0" />
-               </font>
-               <opaqueInsets>
-                  <Insets />
-               </opaqueInsets>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </Button>
-            <Button alignment="CENTER" layoutX="45.0" layoutY="167.0" mnemonicParsing="false" opacity="0.81" prefHeight="32.0" prefWidth="32.0" style="-fx-border-radius: 50%; -fx-border-style: solid; -fx-background-radius: 50%; -fx-background-color: white; -fx-border-color: #FFA500#FFA500;" text="4" textAlignment="CENTER" textFill="ORANGE">
-               <font>
-                  <Font name="Apple SD Gothic Neo Regular" size="14.0" />
-               </font>
-               <opaqueInsets>
-                  <Insets />
-               </opaqueInsets>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </Button>
-            <Button alignment="CENTER" layoutX="104.0" layoutY="167.0" mnemonicParsing="false" opacity="0.81" prefHeight="32.0" prefWidth="32.0" style="-fx-border-radius: 50%; -fx-border-style: solid; -fx-background-radius: 50%; -fx-background-color: white; -fx-border-color: #FFA500#FFA500;" text="5" textAlignment="CENTER" textFill="ORANGE">
-               <font>
-                  <Font name="Apple SD Gothic Neo Regular" size="14.0" />
-               </font>
-               <opaqueInsets>
-                  <Insets />
-               </opaqueInsets>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </Button>
-            <Button alignment="CENTER" layoutX="161.0" layoutY="167.0" mnemonicParsing="false" opacity="0.81" prefHeight="32.0" prefWidth="32.0" style="-fx-border-radius: 50%; -fx-border-style: solid; -fx-background-radius: 50%; -fx-background-color: white; -fx-border-color: #FFA500#FFA500;" text="6" textAlignment="CENTER" textFill="ORANGE">
-               <font>
-                  <Font name="Apple SD Gothic Neo Regular" size="14.0" />
-               </font>
-               <opaqueInsets>
-                  <Insets />
-               </opaqueInsets>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </Button>
-            <Button alignment="CENTER" layoutX="45.0" layoutY="225.0" mnemonicParsing="false" opacity="0.81" prefHeight="32.0" prefWidth="32.0" style="-fx-border-radius: 50%; -fx-border-style: solid; -fx-background-radius: 50%; -fx-background-color: white; -fx-border-color: #FFA500#FFA500;" text="7" textAlignment="CENTER" textFill="ORANGE">
-               <font>
-                  <Font name="Apple SD Gothic Neo Regular" size="14.0" />
-               </font>
-               <opaqueInsets>
-                  <Insets />
-               </opaqueInsets>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </Button>
-            <Button alignment="CENTER" layoutX="104.0" layoutY="225.0" mnemonicParsing="false" opacity="0.81" prefHeight="32.0" prefWidth="32.0" style="-fx-border-radius: 50%; -fx-border-style: solid; -fx-background-radius: 50%; -fx-background-color: white; -fx-border-color: #FFA500#FFA500;" text="8" textAlignment="CENTER" textFill="ORANGE">
-               <font>
-                  <Font name="Apple SD Gothic Neo Regular" size="14.0" />
-               </font>
-               <opaqueInsets>
-                  <Insets />
-               </opaqueInsets>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </Button>
-            <Button alignment="CENTER" layoutX="159.0" layoutY="225.0" mnemonicParsing="false" opacity="0.81" prefHeight="32.0" prefWidth="32.0" style="-fx-border-radius: 50%; -fx-border-style: solid; -fx-background-radius: 50%; -fx-background-color: white; -fx-border-color: #FFA500#FFA500;" text="9" textAlignment="CENTER" textFill="ORANGE">
-               <font>
-                  <Font name="Apple SD Gothic Neo Regular" size="14.0" />
-               </font>
-               <opaqueInsets>
-                  <Insets />
-               </opaqueInsets>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </Button>
-            <Button alignment="CENTER" layoutX="103.0" layoutY="288.0" mnemonicParsing="false" opacity="0.81" prefHeight="32.0" prefWidth="32.0" style="-fx-border-radius: 50%; -fx-border-style: solid; -fx-background-radius: 50%; -fx-background-color: white; -fx-border-color: #FFA500#FFA500;" text="0" textAlignment="CENTER" textFill="ORANGE">
-               <font>
-                  <Font name="Apple SD Gothic Neo Regular" size="14.0" />
-               </font>
-               <opaqueInsets>
-                  <Insets />
-               </opaqueInsets>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </Button>
-            <Button alignment="CENTER" layoutX="45.0" layoutY="288.0" mnemonicParsing="false" opacity="0.81" prefHeight="33.0" prefWidth="46.0" style="-fx-border-radius: 20%; -fx-border-style: solid; -fx-background-radius: 30%; -fx-background-color: white; -fx-border-color: #FFA500#FFA500;" text="AC" textAlignment="CENTER" textFill="ORANGE">
-               <font>
-                  <Font name="Apple SD Gothic Neo Regular" size="14.0" />
-               </font>
-               <opaqueInsets>
-                  <Insets />
-               </opaqueInsets>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </Button>
-            <Button alignment="CENTER" layoutX="145.0" layoutY="289.0" mnemonicParsing="false" opacity="0.81" prefHeight="33.0" prefWidth="46.0" style="-fx-border-radius: 20%; -fx-border-style: solid; -fx-background-radius: 30%; -fx-background-color: white; -fx-border-color: #FFA500#FFA500;" text="C" textAlignment="CENTER" textFill="ORANGE">
-               <font>
-                  <Font name="Apple SD Gothic Neo Regular" size="14.0" />
-               </font>
-               <opaqueInsets>
-                  <Insets />
-               </opaqueInsets>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </Button>
-            <Button alignment="CENTER" layoutX="209.0" layoutY="286.0" mnemonicParsing="false" opacity="0.81" prefHeight="38.0" prefWidth="122.0" style="-fx-border-radius: 20%; -fx-border-style: solid; -fx-background-radius: 30%; -fx-background-color: #ffa500#ffa500; -fx-border-color: #FFA500#FFA500;" text="=" textAlignment="CENTER" textFill="WHITE">
-               <font>
-                  <Font name="Apple SD Gothic Neo Regular" size="18.0" />
-               </font>
-               <opaqueInsets>
-                  <Insets />
-               </opaqueInsets>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </Button>
-            <Button alignment="CENTER" layoutX="209.0" layoutY="108.0" mnemonicParsing="false" opacity="0.81" prefHeight="35.0" prefWidth="54.0" style="-fx-border-radius: 20%; -fx-border-style: solid; -fx-background-radius: 30%; -fx-background-color: white; -fx-border-color: #FFA500#FFA500;" text="+" textAlignment="CENTER" textFill="ORANGE">
-               <font>
-                  <Font name="Apple SD Gothic Neo Regular" size="14.0" />
-               </font>
-               <opaqueInsets>
-                  <Insets />
-               </opaqueInsets>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </Button>
-            <Button alignment="CENTER" layoutX="277.0" layoutY="108.0" mnemonicParsing="false" opacity="0.81" prefHeight="35.0" prefWidth="54.0" style="-fx-border-radius: 20%; -fx-border-style: solid; -fx-background-radius: 30%; -fx-background-color: white; -fx-border-color: #FFA500#FFA500;" text="-" textAlignment="CENTER" textFill="ORANGE">
-               <font>
-                  <Font name="Apple SD Gothic Neo Regular" size="14.0" />
-               </font>
-               <opaqueInsets>
-                  <Insets />
-               </opaqueInsets>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </Button>
-            <Button alignment="CENTER" layoutX="209.0" layoutY="166.0" mnemonicParsing="false" opacity="0.81" prefHeight="35.0" prefWidth="54.0" style="-fx-border-radius: 20%; -fx-border-style: solid; -fx-background-radius: 30%; -fx-background-color: white; -fx-border-color: #FFA500#FFA500;" text="x" textAlignment="CENTER" textFill="ORANGE">
-               <font>
-                  <Font name="Apple SD Gothic Neo Regular" size="14.0" />
-               </font>
-               <opaqueInsets>
-                  <Insets />
-               </opaqueInsets>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </Button>
-            <Button alignment="CENTER" layoutX="277.0" layoutY="166.0" mnemonicParsing="false" opacity="0.81" prefHeight="35.0" prefWidth="54.0" style="-fx-border-radius: 20%; -fx-border-style: solid; -fx-background-radius: 30%; -fx-background-color: white; -fx-border-color: #FFA500#FFA500;" text="÷" textAlignment="CENTER" textFill="ORANGE">
-               <font>
-                  <Font name="Apple SD Gothic Neo Regular" size="14.0" />
-               </font>
-               <opaqueInsets>
-                  <Insets />
-               </opaqueInsets>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </Button>
-            <Button alignment="CENTER" layoutX="209.0" layoutY="224.0" mnemonicParsing="false" opacity="0.81" prefHeight="35.0" prefWidth="54.0" style="-fx-border-radius: 20%; -fx-border-style: solid; -fx-background-radius: 30%; -fx-background-color: white; -fx-border-color: #FFA500#FFA500;" text="sin" textAlignment="CENTER" textFill="ORANGE">
-               <font>
-                  <Font name="Apple SD Gothic Neo Regular" size="14.0" />
-               </font>
-               <opaqueInsets>
-                  <Insets />
-               </opaqueInsets>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </Button>
-            <Button alignment="CENTER" layoutX="277.0" layoutY="224.0" mnemonicParsing="false" opacity="0.81" prefHeight="35.0" prefWidth="54.0" style="-fx-border-radius: 20%; -fx-border-style: solid; -fx-background-radius: 30%; -fx-background-color: white; -fx-border-color: #FFA500#FFA500;" text="cos" textAlignment="CENTER" textFill="ORANGE">
-               <font>
-                  <Font name="Apple SD Gothic Neo Regular" size="14.0" />
-               </font>
-               <opaqueInsets>
-                  <Insets />
-               </opaqueInsets>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </Button>
+            <GridPane alignment="CENTER" layoutX="19.0" layoutY="11.0" prefHeight="349.0" prefWidth="309.0">
+              <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints />
+                  <ColumnConstraints />
+                  <ColumnConstraints />
+                  <ColumnConstraints />
+              </columnConstraints>
+              <rowConstraints>
+                  <RowConstraints maxHeight="94.0" minHeight="0.0" prefHeight="37.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="20.0" minHeight="10.0" prefHeight="20.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="10.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="10.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="10.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="10.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Button fx:id="button1" alignment="CENTER" mnemonicParsing="false" onAction="#press1" opacity="0.81" prefHeight="40.0" prefWidth="40.0" style="-fx-border-radius: 50%; -fx-border-style: solid; -fx-background-radius: 50%; -fx-background-color: white; -fx-border-color: #FFA500#FFA500;" text="1" textAlignment="CENTER" textFill="ORANGE" GridPane.rowIndex="2">
+                     <font>
+                        <Font name="Apple SD Gothic Neo Regular" size="14.0" />
+                     </font>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <GridPane.margin>
+                        <Insets left="10.0" />
+                     </GridPane.margin>
+                  </Button>
+                  <Button fx:id="button2" alignment="CENTER" mnemonicParsing="false" onAction="#press2" opacity="0.81" prefHeight="40.0" prefWidth="40.0" style="-fx-border-radius: 50%; -fx-border-style: solid; -fx-background-radius: 50%; -fx-background-color: white; -fx-border-color: #FFA500#FFA500;" text="2" textAlignment="CENTER" textFill="ORANGE" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                     <font>
+                        <Font name="Apple SD Gothic Neo Regular" size="14.0" />
+                     </font>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <GridPane.margin>
+                        <Insets left="10.0" />
+                     </GridPane.margin>
+                  </Button>
+                  <Button fx:id="button3" alignment="CENTER" mnemonicParsing="false" onAction="#press3" opacity="0.81" prefHeight="40.0" prefWidth="40.0" style="-fx-border-radius: 50%; -fx-border-style: solid; -fx-background-radius: 50%; -fx-background-color: white; -fx-border-color: #FFA500#FFA500;" text="3" textAlignment="CENTER" textFill="ORANGE" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                     <font>
+                        <Font name="Apple SD Gothic Neo Regular" size="14.0" />
+                     </font>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <GridPane.margin>
+                        <Insets left="10.0" />
+                     </GridPane.margin>
+                  </Button>
+                  <Button fx:id="button4" alignment="CENTER" mnemonicParsing="false" onAction="#press4" opacity="0.81" prefHeight="40.0" prefWidth="40.0" style="-fx-border-radius: 50%; -fx-border-style: solid; -fx-background-radius: 50%; -fx-background-color: white; -fx-border-color: #FFA500#FFA500;" text="4" textAlignment="CENTER" textFill="ORANGE" GridPane.rowIndex="3">
+                     <font>
+                        <Font name="Apple SD Gothic Neo Regular" size="14.0" />
+                     </font>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <GridPane.margin>
+                        <Insets left="10.0" />
+                     </GridPane.margin>
+                  </Button>
+                  <Button fx:id="button5" alignment="CENTER" mnemonicParsing="false" onAction="#press5" opacity="0.81" prefHeight="40.0" prefWidth="40.0" style="-fx-border-radius: 50%; -fx-border-style: solid; -fx-background-radius: 50%; -fx-background-color: white; -fx-border-color: #FFA500#FFA500;" text="5" textAlignment="CENTER" textFill="ORANGE" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                     <font>
+                        <Font name="Apple SD Gothic Neo Regular" size="14.0" />
+                     </font>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <GridPane.margin>
+                        <Insets left="10.0" />
+                     </GridPane.margin>
+                  </Button>
+                  <Button fx:id="button6" alignment="CENTER" mnemonicParsing="false" onAction="#press6" opacity="0.81" prefHeight="40.0" prefWidth="40.0" style="-fx-border-radius: 50%; -fx-border-style: solid; -fx-background-radius: 50%; -fx-background-color: white; -fx-border-color: #FFA500#FFA500;" text="6" textAlignment="CENTER" textFill="ORANGE" GridPane.columnIndex="2" GridPane.rowIndex="3">
+                     <font>
+                        <Font name="Apple SD Gothic Neo Regular" size="14.0" />
+                     </font>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <GridPane.margin>
+                        <Insets left="10.0" />
+                     </GridPane.margin>
+                  </Button>
+                  <Button fx:id="button7" alignment="CENTER" mnemonicParsing="false" onAction="#press7" opacity="0.81" prefHeight="40.0" prefWidth="40.0" style="-fx-border-radius: 50%; -fx-border-style: solid; -fx-background-radius: 50%; -fx-background-color: white; -fx-border-color: #FFA500#FFA500;" text="7" textAlignment="CENTER" textFill="ORANGE" GridPane.rowIndex="4">
+                     <font>
+                        <Font name="Apple SD Gothic Neo Regular" size="14.0" />
+                     </font>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <GridPane.margin>
+                        <Insets left="10.0" />
+                     </GridPane.margin>
+                  </Button>
+                  <Button fx:id="button8" alignment="CENTER" mnemonicParsing="false" onAction="#press8" opacity="0.81" prefHeight="40.0" prefWidth="40.0" style="-fx-border-radius: 50%; -fx-border-style: solid; -fx-background-radius: 50%; -fx-background-color: white; -fx-border-color: #FFA500#FFA500;" text="8" textAlignment="CENTER" textFill="ORANGE" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                     <font>
+                        <Font name="Apple SD Gothic Neo Regular" size="14.0" />
+                     </font>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <GridPane.margin>
+                        <Insets left="10.0" />
+                     </GridPane.margin>
+                  </Button>
+                  <Button fx:id="button9" alignment="CENTER" mnemonicParsing="false" onAction="#press9" opacity="0.81" prefHeight="40.0" prefWidth="40.0" style="-fx-border-radius: 50%; -fx-border-style: solid; -fx-background-radius: 50%; -fx-background-color: white; -fx-border-color: #FFA500#FFA500;" text="9" textAlignment="CENTER" textFill="ORANGE" GridPane.columnIndex="2" GridPane.rowIndex="4">
+                     <font>
+                        <Font name="Apple SD Gothic Neo Regular" size="14.0" />
+                     </font>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <GridPane.margin>
+                        <Insets left="10.0" />
+                     </GridPane.margin>
+                  </Button>
+                  <Button fx:id="button0" alignment="CENTER" mnemonicParsing="false" onAction="#press0" opacity="0.81" prefHeight="40.0" prefWidth="40.0" style="-fx-border-radius: 50%; -fx-border-style: solid; -fx-background-radius: 50%; -fx-background-color: white; -fx-border-color: #FFA500#FFA500;" text="0" textAlignment="CENTER" textFill="ORANGE" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                     <font>
+                        <Font name="Apple SD Gothic Neo Regular" size="14.0" />
+                     </font>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <GridPane.margin>
+                        <Insets left="10.0" />
+                     </GridPane.margin>
+                  </Button>
+                  <Button fx:id="buttonAC" alignment="CENTER" mnemonicParsing="false" onAction="#pressAC" opacity="0.81" prefHeight="33.0" prefWidth="46.0" style="-fx-border-radius: 20%; -fx-border-style: solid; -fx-background-radius: 30%; -fx-background-color: white; -fx-border-color: #FFA500#FFA500;" text="AC" textAlignment="CENTER" textFill="ORANGE" GridPane.rowIndex="5">
+                     <font>
+                        <Font name="Apple SD Gothic Neo Regular" size="14.0" />
+                     </font>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <GridPane.margin>
+                        <Insets left="10.0" />
+                     </GridPane.margin>
+                  </Button>
+                  <Button fx:id="buttonC" alignment="CENTER" mnemonicParsing="false" onAction="#pressC" opacity="0.81" prefHeight="33.0" prefWidth="46.0" style="-fx-border-radius: 20%; -fx-border-style: solid; -fx-background-radius: 30%; -fx-background-color: white; -fx-border-color: #FFA500#FFA500;" text="⌫" textAlignment="CENTER" textFill="ORANGE" GridPane.columnIndex="2" GridPane.rowIndex="5">
+                     <font>
+                        <Font name="Apple SD Gothic Neo Regular" size="14.0" />
+                     </font>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <GridPane.margin>
+                        <Insets left="10.0" />
+                     </GridPane.margin>
+                  </Button>
+                  <Button fx:id="plusButton" alignment="CENTER" mnemonicParsing="false" onAction="#pressAddButton" opacity="0.81" prefHeight="35.0" prefWidth="54.0" style="-fx-border-radius: 20%; -fx-border-style: solid; -fx-background-radius: 30%; -fx-background-color: white; -fx-border-color: #FFA500#FFA500;" text="+" textAlignment="CENTER" textFill="ORANGE" GridPane.columnIndex="3" GridPane.rowIndex="2">
+                     <font>
+                        <Font name="Apple SD Gothic Neo Regular" size="14.0" />
+                     </font>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <GridPane.margin>
+                        <Insets left="5.0" />
+                     </GridPane.margin>
+                  </Button>
+                  <Button fx:id="minusButton" alignment="CENTER" mnemonicParsing="false" onAction="#pressMinusButton" opacity="0.81" prefHeight="35.0" prefWidth="54.0" style="-fx-border-radius: 20%; -fx-border-style: solid; -fx-background-radius: 30%; -fx-background-color: white; -fx-border-color: #FFA500#FFA500;" text="-" textAlignment="CENTER" textFill="ORANGE" GridPane.columnIndex="4" GridPane.rowIndex="2">
+                     <font>
+                        <Font name="Apple SD Gothic Neo Regular" size="14.0" />
+                     </font>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <GridPane.margin>
+                        <Insets left="5.0" />
+                     </GridPane.margin>
+                  </Button>
+                  <Button fx:id="divideButton" alignment="CENTER" mnemonicParsing="false" onAction="#pressDivideButton" opacity="0.81" prefHeight="35.0" prefWidth="54.0" style="-fx-border-radius: 20%; -fx-border-style: solid; -fx-background-radius: 30%; -fx-background-color: white; -fx-border-color: #FFA500#FFA500;" text="÷" textAlignment="CENTER" textFill="ORANGE" GridPane.columnIndex="4" GridPane.rowIndex="3">
+                     <font>
+                        <Font name="Apple SD Gothic Neo Regular" size="14.0" />
+                     </font>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <GridPane.margin>
+                        <Insets left="5.0" />
+                     </GridPane.margin>
+                  </Button>
+                  <Button fx:id="multiplicationButton" alignment="CENTER" mnemonicParsing="false" onAction="#pressMultiplicationButton" opacity="0.81" prefHeight="35.0" prefWidth="54.0" style="-fx-border-radius: 20%; -fx-border-style: solid; -fx-background-radius: 30%; -fx-background-color: white; -fx-border-color: #FFA500#FFA500;" text="x" textAlignment="CENTER" textFill="ORANGE" GridPane.columnIndex="3" GridPane.rowIndex="3">
+                     <font>
+                        <Font name="Apple SD Gothic Neo Regular" size="14.0" />
+                     </font>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <GridPane.margin>
+                        <Insets left="5.0" />
+                     </GridPane.margin>
+                  </Button>
+                  <Button fx:id="sinButton" alignment="CENTER" mnemonicParsing="false" onAction="#calculateSin" opacity="0.81" prefHeight="35.0" prefWidth="54.0" style="-fx-border-radius: 20%; -fx-border-style: solid; -fx-background-radius: 30%; -fx-background-color: white; -fx-border-color: #FFA500#FFA500;" text="sin" textAlignment="CENTER" textFill="ORANGE" GridPane.columnIndex="3" GridPane.rowIndex="4">
+                     <font>
+                        <Font name="Apple SD Gothic Neo Regular" size="14.0" />
+                     </font>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <GridPane.margin>
+                        <Insets left="5.0" />
+                     </GridPane.margin>
+                  </Button>
+                  <Button fx:id="cosButton" alignment="CENTER" mnemonicParsing="false" onAction="#calculateCos" opacity="0.81" prefHeight="35.0" prefWidth="54.0" style="-fx-border-radius: 20%; -fx-border-style: solid; -fx-background-radius: 30%; -fx-background-color: white; -fx-border-color: #FFA500#FFA500;" text="cos" textAlignment="CENTER" textFill="ORANGE" GridPane.columnIndex="4" GridPane.rowIndex="4">
+                     <font>
+                        <Font name="Apple SD Gothic Neo Regular" size="14.0" />
+                     </font>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <GridPane.margin>
+                        <Insets left="5.0" />
+                     </GridPane.margin>
+                  </Button>
+                  <Button fx:id="equalButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#calculateResult" opacity="0.81" prefHeight="38.0" prefWidth="241.0" style="-fx-border-radius: 20%; -fx-border-style: solid; -fx-background-radius: 30%; -fx-background-color: #ffa500#ffa500; -fx-border-color: #FFA500#FFA500;" text="=" textAlignment="CENTER" textFill="WHITE" GridPane.columnIndex="3" GridPane.columnSpan="2" GridPane.rowIndex="5">
+                     <font>
+                        <Font name="Apple SD Gothic Neo Regular" size="18.0" />
+                     </font>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <TextField fx:id="resultBox" editable="false" maxWidth="1.7976931348623157E308" prefHeight="36.0" prefWidth="348.0" promptText="Press any button" style="-fx-border-color: #FFA500#FFA500;" GridPane.columnSpan="7">
+                     <font>
+                        <Font name="Arial" size="13.0" />
+                     </font></TextField>
+                  <Label fx:id="wrongLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="20.0" prefWidth="191.0" text="Wrong expression" textFill="#e62929" visible="false" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowIndex="1">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <font>
+                        <Font name="Arial" size="14.0" />
+                     </font>
+                  </Label>
+               </children>
+            </GridPane>
          </children></AnchorPane>
   </content>
    <font>

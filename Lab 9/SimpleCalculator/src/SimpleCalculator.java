@@ -6,19 +6,19 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class Main extends Application {
+public class SimpleCalculator extends Application {
 
     @Override
     public void start(Stage primaryStage) {
         try {
             FXMLLoader loader = new FXMLLoader ( getClass().getResource( "SimpleCalculator.fxml" ));
-            loader.setController(new Controller());
+//            loader.setController(new SimpleCalculatorController());
             Parent root = loader.load();
             primaryStage.setScene(new Scene(root, 351, 410));
             primaryStage.show();
         }
         catch (IOException exception) {
-//            exception.printStackTrace();
+            exception.printStackTrace();
         }
     }
 
